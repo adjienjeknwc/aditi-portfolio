@@ -44,7 +44,7 @@ export default function DeveloperPage() {
           ← BACK HOME
         </Link>
         <div className="flex items-center gap-4">
-  <a href="https://drive.google.com/file/d/1k8BkzbadESW8zhkedh3chagCLGTyPAWr/view?usp=drivesdk" className="text-[10px] font-bold uppercase tracking-widest text-white border-b border-cyan-500 pb-1 hover:text-cyan-400 transition-all">
+  <a href="https://drive.google.com/file/d/1an-3X0G7TXNNqZYU7xloNIy6wdVVxw1q/view?usp=drivesdk" className="text-[10px] font-bold uppercase tracking-widest text-white border-b border-cyan-500 pb-1 hover:text-cyan-400 transition-all">
     Get Resume
   </a>
   {/* Existing GitHub/Connect buttons */}
