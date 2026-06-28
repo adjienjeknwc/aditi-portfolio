@@ -1,0 +1,436 @@
+"use client";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+
+export default function BusinessAnalystPage() {
+  const [expandedDoc, setExpandedDoc] = useState<string | null>(null);
+
+  const consultingHighlights = [
+    { label: "Internship", value: "EY (Ernst & Young)" },
+    { label: "Domain", value: "Insurance (Life Lifecycle)" },
+    { label: "Documents Created", value: "BRD • FSD • User Stories" },
+    { label: "Tools Used", value: "Jira • Confluence • Figma" },
+    { label: "Business Analysis Skills", value: "Requirement Gathering • Process Mapping" }
+  ];
+
+  const philosophyPoints = [
+    { title: "Understand the problem first", text: "I map out the current business situation and gather input from domain experts before trying to outline software features." },
+    { title: "Ask questions to remove ambiguity", text: "I clarify edge cases early in the discovery phase so requirements are clear and don't stall design or engineering sprints." },
+    { title: "Think from the user's perspective", text: "I frame specifications around the daily patterns of the field agents who rely on the software to hit their sales targets." },
+    { title: "Keep documentation practical", text: "I structure BRDs, FSDs, and user stories cleanly so that designers, developers, and QA engineers can understand them immediately." }
+  ];
+
+  const discoveryQuestions = [
+    { q: "What problem are we solving?", desc: "Ensures the development team is building a functional enhancement rather than adding unnecessary system complexity." },
+    { q: "Who will use this feature?", desc: "Identifies if the workflow belongs to independent agents, internal underwriters, or operations managers." },
+    { q: "What are the edge cases?", desc: "Uncovers what happens if an API endpoint drops or verification keys fail during active sessions." },
+    { q: "What happens if this rule changes?", desc: "Protects baseline technical logic configurations against unexpected structural shifts in compliance guidelines." }
+  ];
+
+  const artifactData = [
+    {
+      id: "brd",
+      title: "Business Requirements Document",
+      type: "BRD Extract",
+      desc: "Documenting business objectives, user profiles, functional scope boundaries, and delivery dependencies.",
+      content: `BUSINESS REQUIREMENTS DOCUMENT (BRD)
+PROJECT: LIFE INSURANCE AGENT PORTAL
+
+1. Business Objective
+The objective is to digitize manual documentation loops within the onboarding workflow for independent agents, lowering the complete processing timeline from 5 days to under 48 hours.
+
+2. Stakeholder Matrix
+• Regional Distribution Managers (Business Sponsor)
+• Operations Underwriters (Process Owners)
+• Independent Field Agents (Primary Users)
+
+3. High-Level Business Requirements
+• System must securely capture and cross-check agent license numbers against regulatory databases before opening quote features.
+• Portal must automatically flag high-risk applications for prioritize underwriter review based on coverage limits.`
+    },
+    {
+      id: "fsd",
+      title: "Functional Specification Document",
+      type: "FSD Extract",
+      desc: "Outlining user interface field behaviors, input parameters, system rules, and UI validation errors.",
+      content: `FUNCTIONAL SPECIFICATION DOCUMENT (FSD)
+MODULE: PREMIUM CALCULATOR FORM
+
+1. UI Input Field: Customer_Age
+• Data Type: Integer
+• Range Constraint: 18 to 65
+• Field Validation: If the field is left blank or contains non-numeric strings, display warning text: "Customer age must be between 18 and 65."
+
+2. Exception Handling Logic
+• If the external address lookup service times out, cache the entered form variables locally within the user session state.
+• Generate an automated background ticket in the manual processing queue without interrupting the agent's navigation flow.`
+    },
+    {
+      id: "rules",
+      title: "Business Rules Matrix",
+      type: "Validation Logic Map",
+      desc: "Conditional validation thresholds, policy status flags, and compliance underwriting rules.",
+      content: `BUSINESS RULES MATRIX
+LIFE INSURANCE PLATFORM LOGIC
+
+Rule ID: RULE-ONB-01 [Medical Underwriting Routing]
+• IF: Customer Age > 60 OR Proposed Sum Assured > 5,000,000 INR
+• THEN: Route application state automatically to 'Medical Underwriting Pending' and place it in the Underwriter Review Queue.
+• ELSE: Route application directly to the Standard Automated Verification track.
+
+Rule ID: RULE-PAY-02 [Premium Failure Exception]
+• IF: Core Banking Gateway returns a 'Payment Failed' status code
+• THEN: Update Policy Status to 'Pending Premium' and hold automated document generation.`
+    },
+    {
+      id: "stories",
+      title: "User Stories & Acceptance Criteria",
+      type: "Agile Backlog Artifact",
+      desc: "Agile feature definitions, user perspectives, functional scenarios, and test readiness parameters.",
+      content: `AGILE TICKET SPECIFICATION
+FEATURE: Save Lead Draft Progress
+
+User Story:
+AS AN Insurance Agent,
+I WANT TO save an incomplete customer onboarding file as a Draft record,
+SO THAT I can finish collecting medical history documents later without losing the data I already entered.
+
+Acceptance Criteria (Given-When-Then Framework):
+• GIVEN an authenticated agent has filled out a customer's basic identity data but left medical questionnaires blank,
+• WHEN they trigger the 'Save Draft' button action,
+• THEN save the session data to the database collection with the state 'DRAFT_INCOMPLETE',
+• AND display a confirmation banner stating: "Draft progress saved."`
+    }
+  ];
+
+  const workflowSteps = [
+    { title: "Understand Business Problem", text: "Studying the end-to-end insurance policy lifecycle to identify operational bottlenecks." },
+    { title: "Meet Stakeholders", text: "Discussing day-to-day pain points with mentors, managers, and system users." },
+    { title: "Study Current Process", text: "Mapping the existing workflows to pinpoint exactly where processing delays occur." },
+    { title: "Identify Pain Points", text: "Isolating manual handoffs, data re-entry loops, and blind spots in status visibility." },
+    { title: "Document Requirements", text: "Translating gathered stakeholder needs into clear business and functional specifications." },
+    { title: "Prepare User Stories", text: "Breaking down high-level scope into detailed agile cards with clear acceptance boundaries." },
+    { title: "Create BRD & FSD", explanation: "Compiling business requirements and detailed functional specifications for design and engineering handoff." },
+    { title: "Support Development", text: "Reviewing specifications with engineering teams early to align on technical constraints." },
+    { title: "Review During Testing", text: "Collaborating with QA teams to verify that test scenarios map directly to documented business logic." }
+  ];
+
+  return (
+    <main className="min-h-screen bg-[#030303] text-[#d4d4d8] font-sans antialiased selection:bg-emerald-500/20 overflow-x-hidden pb-20">
+      
+      {/* BACKGROUND MATRIX GRID OVERLAY */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#09140e_1px,transparent_1px),linear-gradient(to_bottom,#09140e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none z-0" />
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none z-0" />
+
+      {/* 1. NAVIGATION BAR */}
+      <nav className="fixed top-0 w-full z-[100] px-6 py-4 flex justify-between items-center bg-[#030303]/70 backdrop-blur-md border-b border-white/5">
+        <Link href="/" className="px-4 py-2 border border-emerald-500/20 bg-emerald-950/10 text-emerald-400 font-mono text-[10px] font-bold uppercase tracking-widest rounded hover:bg-emerald-500/10 transition-all">
+          ← RETURN TO LIFECYCLE
+        </Link>
+        <div className="flex items-center gap-6 font-mono text-[10px] tracking-widest text-gray-400">
+          <a href="https://github.com/adjienjeknwc" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GITHUB</a>
+          <a href="https://www.linkedin.com/in/aditi-verma-8b8220287" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LINKEDIN</a>
+        </div>
+      </nav>
+
+      {/* 2. HERO SECTION */}
+      <section className="min-h-[75vh] flex flex-col justify-center px-8 md:px-20 max-w-6xl mx-auto pt-32 relative z-10">
+        <div className="space-y-4 max-w-4xl">
+          <p className="text-emerald-400 font-mono tracking-[0.4em] text-[10px] uppercase">// PROFESSIONAL OVERVIEW</p>
+          <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white italic leading-[0.9]">
+            THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">ANALYST.</span>
+          </h1>
+          <p className="text-gray-400 text-lg md:text-xl font-light leading-relaxed font-sans pt-4">
+            I begin by understanding the business before defining the solution. My internship at EY taught me how to convert business problems into structured documentation, process flows, user stories, and implementation-ready requirements. I focus on keeping requirements clear, realistic, and completely aligned with project goals.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 9: CONSULTING HIGHLIGHT METRIC STRIP */}
+      <section className="border-t border-b border-white/5 bg-[#050706] py-8 px-8 md:px-20 z-10 relative">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6">
+          {consultingHighlights.map((item, idx) => (
+            <div key={idx} className="border-l border-emerald-500/30 pl-4 font-mono">
+              <p className="text-[9px] uppercase text-gray-500 tracking-wider mb-1">{item.label}</p>
+              <p className="text-xs uppercase text-white font-bold tracking-tight">{item.value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 10: HOW I THINK AS A BA */}
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          <div className="space-y-4">
+            <p className="text-emerald-500 font-mono text-[10px] tracking-[0.4em] uppercase">// METHODOLOGY & PRACTICE</p>
+            <h3 className="text-2xl md:text-3xl font-black uppercase text-white italic tracking-tight">How I Think as a Business Analyst</h3>
+            <div className="space-y-4 font-sans text-sm text-gray-400 font-light leading-relaxed">
+              {philosophyPoints.map((point, idx) => (
+                <div key={idx} className="space-y-1">
+                  <h4 className="text-white font-medium not-italic text-sm">&bull; {point.title}</h4>
+                  <p className="pl-4 italic text-gray-500 text-[13px]">{point.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-emerald-950/5 border border-emerald-900/10 p-6 rounded-xl font-mono text-[11px] text-gray-500 space-y-2 self-center">
+            <p className="text-emerald-400 font-bold uppercase tracking-wider mb-2">// INSIGHT FROM EXPERIENCE</p>
+            <p>Spending systematic upfront effort in defining exception handling, validation limits, and status logic keeps development moving and avoids expensive rework mid-sprint.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. EY EXPERIENCE SECTION */}
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+        <div className="space-y-3 mb-12">
+          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// PROFESSIONAL_EXPERIENCE"}</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">EY Experience</h2>
+          <p className="text-xs font-mono text-gray-500 uppercase italic">Business Analyst Intern | Enterprise Insurance Consulting</p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-sm font-sans">
+          <div className="p-6 border border-white/5 bg-neutral-950/40 rounded-xl space-y-2">
+            <h4 className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">About the Project</h4>
+            <p className="text-gray-400 text-xs font-light leading-relaxed italic">
+              Worked on a Life Insurance Agent Portal designed to handle the core insurance lifecycle—from lead capture and quotation to underwriting routing, premium payment validation, and policy renewal tracks.
+            </p>
+          </div>
+          <div className="p-6 border border-white/5 bg-neutral-950/40 rounded-xl space-y-2">
+            <h4 className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">What I Worked On</h4>
+            <ul className="text-gray-400 text-xs font-light space-y-1.5 list-disc pl-4 italic">
+              <li>Gathered and organized project requirements from mentorship discussions.</li>
+              <li>Drafted BRD and FSD document structures for underwriting and onboarding tracks.</li>
+              <li>Prepared clear user stories, validation rules, and acceptance criteria.</li>
+              <li>Reviewed layouts to ensure wireframes lined up with documented specifications.</li>
+            </ul>
+          </div>
+          <div className="p-6 border border-white/5 bg-neutral-950/40 rounded-xl space-y-2">
+            <h4 className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">What I Learned</h4>
+            <p className="text-gray-400 text-xs font-light leading-relaxed italic">
+              Gained practical experience converting loose business needs into clear requirements. Learned how to communicate across business and development groups, map processes accurately, and protect agile delivery sprint tracks from scope creep.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. BUSINESS ANALYSIS PROCESS FLOW */}
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+        <div className="mb-12">
+          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// OPERATION_STEPS"}</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">My Business Analysis Approach</h2>
+        </div>
+
+        <div className="relative border-l border-emerald-950 pl-6 space-y-6 font-mono text-xs max-w-3xl">
+          {workflowSteps.map((step, idx) => (
+            <div key={idx} className="relative group">
+              <div className="absolute -left-[29px] top-1 w-2 h-2 rounded-full bg-[#030303] border border-emerald-400 transition-colors group-hover:bg-emerald-400" />
+              <h4 className="text-white font-bold uppercase tracking-tight text-xs transition-colors group-hover:text-emerald-400">{step.title}</h4>
+              {step.text && <p className="font-sans font-light italic text-gray-500 text-[13px] leading-relaxed pt-0.5">{step.text}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 8. AGENT PORTAL CASE STUDY */}
+      <section id="agent-portal" className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-20 scroll-mt-24">
+        <div className="mb-12">
+          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// CASE_STUDY"}</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">Agent Portal Case Study</h2>
+        </div>
+
+        <div className="border border-white/10 rounded-2xl bg-neutral-950/40 p-6 md:p-10 space-y-10 font-sans text-xs md:text-sm">
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 border-b border-white/5 pb-8">
+            <div className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">Project Overview</div>
+            <div className="md:col-span-3 text-gray-400 font-light italic leading-relaxed">
+              The project involved designing structural business requirements and functional behaviors for an enterprise Life Insurance Agent Portal used by distributed non-captive agents to process client coverage applications.
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 border-b border-white/5 pb-8">
+            <div className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">Business Problem</div>
+            <div className="md:col-span-3 text-gray-400 font-light italic leading-relaxed">
+              Legacy distribution channels relied on manual compliance checkpoints that delayed agent onboarding processing. A lack of real-time visibility into the status of underwriting reviews led to continuous follow-up loops and incomplete policy drops.
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 border-b border-white/5 pb-8">
+            <div className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">Users & Stakeholders</div>
+            <div className="md:col-span-3 text-gray-400 font-light italic leading-relaxed">
+              The platform directly impacts field distribution agents needing rapid pricing configurations, office underwriting teams managing operational exception metrics, and compliance officers tracking audit parameters.
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 border-b border-white/5 pb-8">
+            <div className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">My Responsibilities</div>
+            <div className="md:col-span-3 text-gray-400 font-light italic leading-relaxed space-y-2">
+              <p>&bull; Assisted in gathering requirements and documenting operational validation metrics for lead forms.</p>
+              <p>&bull; Mapped high-level policy lifecycles and structured user story breakdowns with strict acceptance criteria.</p>
+              <p>&bull; Mapped explicit conditional parameters for premium calculators and medical underwriting routing parameters.</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">Key Learnings</div>
+            <div className="md:col-span-3 text-gray-400 font-light italic leading-relaxed">
+              Gained first-hand domain insight into core insurance processes, policy issuance structures, and compliance rules. Learned how detailed documentation directly impacts development velocity by addressing process questions before code construction begins.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 2. BUSINESS ANALYSIS DELIVERABLES PREVIEW GRID */}
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+        <div className="mb-4">
+          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// INTERNSHIP_ARTIFACTS"}</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">Business Analysis Deliverables</h2>
+        </div>
+        <p className="text-gray-400 font-sans font-light italic text-sm mb-12 max-w-xl">
+          During my internship, I worked on documenting business requirements, functional specifications, business rules, and user stories to support the development team. Click any card to inspect a realistic snippet.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {artifactData.map((doc) => (
+            <div 
+              key={doc.id}
+              onClick={() => setExpandedDoc(doc.id)}
+              className="border border-white/10 p-6 rounded-xl bg-neutral-950/40 hover:border-emerald-500/30 transition-all cursor-pointer flex flex-col justify-between group"
+            >
+              <div>
+                <p className="text-[9px] font-mono text-emerald-400 uppercase tracking-widest mb-3">{doc.type}</p>
+                <h4 className="text-base font-black text-white italic tracking-tight group-hover:text-emerald-400 transition-colors uppercase leading-tight mb-2">
+                  {doc.title}
+                </h4>
+                <p className="text-gray-500 font-sans font-light text-[11px] leading-relaxed italic">{doc.desc}</p>
+              </div>
+              <span className="text-[10px] font-mono text-emerald-500/40 mt-8 block group-hover:text-white transition-colors">View Sample →</span>
+            </div>
+          ))}
+        </div>
+
+        {/* MODAL DETAILED DOCUMENTATION SUMMARY VAULT CONTAINER */}
+        <AnimatePresence>
+          {expandedDoc && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setExpandedDoc(null)}
+              className="fixed inset-0 z-[100000] bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+            >
+              {artifactData.filter(item => item.id === expandedDoc).map(item => (
+                <motion.div 
+                  key={item.id}
+                  initial={{ scale: 0.96, y: 15 }}
+                  animate={{ scale: 1, y: 0 }}
+                  exit={{ scale: 0.96, y: 15 }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="bg-[#050706] border border-emerald-500/20 p-6 md:p-8 rounded-xl max-w-2xl w-full text-left font-mono relative"
+                >
+                  <button 
+                    onClick={() => setExpandedDoc(null)}
+                    className="absolute top-6 right-6 text-[10px] font-bold text-gray-500 hover:text-white tracking-widest uppercase focus:outline-none"
+                  >
+                    [CLOSE]
+                  </button>
+                  <p className="text-[9px] text-emerald-400 uppercase tracking-widest mb-1">{item.type}</p>
+                  <h3 className="text-base font-black text-white uppercase italic tracking-tight mb-6 border-b border-white/5 pb-4">{item.title}</h3>
+                  <pre className="text-xs text-gray-400 leading-relaxed whitespace-pre-wrap bg-black/60 p-4 rounded-lg border border-white/5 max-h-[300px] overflow-y-auto font-mono">
+                    {item.content}
+                  </pre>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </section>
+
+      {/* NEW SECTION: QUESTIONS I LEARNED TO ASK */}
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+        <div className="mb-12">
+          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// ANALYTICAL_DISCOVERY"}</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">Questions I Learned to Ask</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {discoveryQuestions.map((item, idx) => (
+            <div key={idx} className="p-6 border border-white/5 bg-neutral-950/20 rounded-xl space-y-2 font-sans">
+              <h4 className="text-base font-bold text-white uppercase tracking-tight font-mono text-emerald-400">{item.q}</h4>
+              <p className="text-gray-400 text-xs font-light leading-relaxed italic">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CORE BUSINESS ANALYST TOOLKIT */}
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+        <div className="mb-12">
+          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// PRAGMATIC_TOOLKIT"}</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">Business Analysis Toolkit</h2>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 font-mono text-xs">
+          <div>
+            <h3 className="text-emerald-400 font-bold uppercase tracking-widest border-b border-white/5 pb-2 text-[10px]">// Analysis & Elicitation</h3>
+            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-white tracking-tight pt-4">
+              <span>Requirement Gathering</span>
+              <span>Stakeholder Communication</span>
+              <span>Process Mapping & BPMN</span>
+              <span>Wireframes Development</span>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-emerald-400 font-bold uppercase tracking-widest border-b border-white/5 pb-2 text-[10px]">// Documentation Artifacts</h3>
+            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-white tracking-tight pt-4">
+              <span>BRD Composition</span>
+              <span>FSD Specifications</span>
+              <span>User Stories Management</span>
+              <span>Acceptance Criteria</span>
+              <span>Business Rules Specs</span>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-emerald-400 font-bold uppercase tracking-widest border-b border-white/5 pb-2 text-[10px]">// Project Systems</h3>
+            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-white tracking-tight pt-4">
+              <span>Jira Workspaces</span>
+              <span>Confluence Hubs</span>
+              <span>Figma Prototyping</span>
+              <span>Miro Boards</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 13. LEARNING REFLECTION FOOTER */}
+      <section className="py-28 px-8 md:px-20 border-t border-white/5 bg-neutral-950/20 text-center relative z-10">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div>
+            <p className="text-emerald-400 font-mono text-[10px] tracking-[0.5em] uppercase mb-4 italic">// WHAT BUSINESS ANALYSIS MEANS TO ME</p>
+            <p className="text-base md:text-lg font-sans font-light italic leading-relaxed text-gray-400 max-w-3xl mx-auto">
+              During my internship, I realized that Business Analysis is much more than writing documents. It is about understanding how people work, identifying where processes fail, asking the right questions, and helping teams build software that actually solves business problems. That mindset is what I continue to develop in every project.
+            </p>
+          </div>
+          
+          <div className="border-t border-white/5 pt-10 max-w-2xl mx-auto">
+            <h4 className="text-xl md:text-2xl font-sans font-black uppercase text-white tracking-tight italic">
+              Ready to build products that solve business problems.
+            </h4>
+            
+            
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER AREA */}
+      <footer className="py-12 bg-[#030303] border-t border-white/5 text-center relative z-10">
+        <div className="flex flex-col md:flex-row justify-center gap-6 opacity-30 font-mono text-[8px] tracking-[0.4em] uppercase text-gray-400">
+          <span>LOCATION: JAIPUR // INDIA</span>
+          <span className="hidden md:block">|</span>
+          <span>© 2026 ADITI VERMA // BUSINESS SPECIFICATIONS</span>
+        </div>
+      </footer>
+
+    </main>
+  );
+}
