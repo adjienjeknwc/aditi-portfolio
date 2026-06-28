@@ -83,11 +83,7 @@ export default function DeveloperPage() {
         <Link href="/" className="px-5 py-2 bg-white text-black rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl z-[10001] relative">
           ← BACK HOME
         </Link>
-        <div className="flex items-center gap-4 z-[10001] relative">
-          <a href="https://drive.google.com/file/d/1an-3X0G7TXNNqZYU7xloNIy6wdVVxw1q/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-widest text-white border-b border-cyan-500 pb-1 hover:text-cyan-400 transition-all">
-            Get Resume
-          </a>
-        </div>
+        
         <div className="flex items-center gap-6 z-[10001] relative">
           <a href="https://github.com/adjienjeknwc" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-cyan-400 transition-colors">GitHub</a>
           <a href="https://www.linkedin.com/in/aditi-verma-8b8220287" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-cyan-600 text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-cyan-500 transition-all">Connect</a>
