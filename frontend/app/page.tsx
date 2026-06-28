@@ -20,7 +20,7 @@ export default function Home() {
   `;
 
   return (
-    <main className="h-screen w-screen bg-[#030303] overflow-hidden selection:bg-emerald-500/20 antialiased text-white font-sans">
+    <main className="min-h-screen w-full overflow-x-hidden overflow-y-auto bg-[#030303] selection:bg-emerald-500/20 antialiased text-white font-sans">
       <AnimatePresence mode="wait">
         
         {/* PHASE 1: THE CINEMATIC LOADER */}
@@ -45,6 +45,7 @@ export default function Home() {
                   alt="😜" 
                   fill 
                   priority
+                  sizes="(max-width: 768px) 100vw, 320px" // <-- ADD THIS LINE
                   className="object-contain drop-shadow-[0_20px_50px_rgba(16,185,129,0.15)]" 
                 />
               </motion.div>
@@ -57,7 +58,7 @@ export default function Home() {
               className="text-center mt-12"
             >
               <h2 className="text-white/40 font-mono text-[18px] uppercase tracking-[0.6em] italic mb-4">
-                Hi! I an Aditi 
+                Hi! I am Aditi 
               </h2>
               <div className="w-48 h-[1px] bg-white/5 mx-auto relative overflow-hidden">
                 <motion.div 
@@ -79,10 +80,11 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, y: -40, filter: "blur(10px)" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="h-full w-full flex flex-col justify-center items-center px-8 md:px-24 text-center bg-[#050505] relative"
+            className="min-h-screen w-full flex flex-col justify-center items-center px-8 md:px-24 py-16 text-center bg-[#050505] relative"
           >
             <div className="absolute top-16 left-1/2 -translate-x-1/2 w-16 h-16 opacity-20 pointer-events-none">
-              <Image src="/spec_girl_intro.png" alt="😜" fill className="object-contain grayscale" />
+              <Image src="/spec_girl_intro.png" alt="😜" fill className="object-contain grayscale" 
+              sizes="64px"/>
             </div>
 
             <div className="max-w-5xl">
@@ -115,7 +117,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="h-full w-full flex flex-col bg-[#030303] pt-12 md:pt-16 relative"
+            className="min-h-screen w-full flex flex-col bg-[#030303] pt-12 md:pt-16 relative"
           >
             {/* HEADLINE AREA & PERSONAL POSITIONING MANIFESTO */}
             <div className="px-8 md:px-16 pb-6 max-w-6xl z-20">
@@ -149,10 +151,10 @@ export default function Home() {
             </div>
 
             {/* THREE-PANEL CONTINUOUS LIFECYCLE GRID ENGINE */}
-            <div className="flex-1 flex flex-col md:flex-row border-t border-white/5 relative z-10">
+            <div className="w-full flex flex-col md:flex-row border-t border-white/5 relative z-10 h-auto md:flex-1">
               
               {/* STAGE 01: UNDERSTAND (Business Analysis) */}
-              <Link href="/business-analyst" className="flex-1 relative group overflow-hidden bg-[#070707] flex flex-col justify-between p-8 md:p-12 transition-all duration-700 ease-[0.16, 1, 0.3, 1] hover:flex-[1.25] border-b md:border-b-0 md:border-r border-white/5 text-left">
+              <Link href="/business-analyst" className="flex-1 relative group overflow-hidden bg-[#070707] flex flex-col justify-between p-8 md:p-12 transition-all duration-700 ease-[0.16, 1, 0.3, 1] hover:flex-[1.25] border-b md:border-b-0 md:border-r border-white/5 text-left min-h-[380px] md:min-h-0">
                 {/* Subtle Visual Identity Drop Shadow/Glow Accents */}
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none shadow-[inset_0_0_40px_rgba(16,185,129,0.02)]" />
                 <div className="absolute top-0 right-0 p-8 font-mono text-emerald-500/[0.03] group-hover:text-emerald-500/[0.08] text-7xl font-black tracking-tighter select-none transition-all duration-700 transform group-hover:-translate-y-2">01</div>
@@ -189,7 +191,7 @@ export default function Home() {
               </Link>
 
               {/* STAGE 02: DESIGN (UX Portfolio) */}
-              <Link href="/ux-design" className="flex-1 relative group overflow-hidden bg-[#090909] flex flex-col justify-between p-8 md:p-12 transition-all duration-700 ease-[0.16, 1, 0.3, 1] hover:flex-[1.25] border-b md:border-b-0 md:border-r border-white/5 text-left">
+              <Link href="/ux-design" className="flex-1 relative group overflow-hidden bg-[#090909] flex flex-col justify-between p-8 md:p-12 transition-all duration-700 ease-[0.16, 1, 0.3, 1] hover:flex-[1.25] border-b md:border-b-0 md:border-r border-white/5 text-left min-h-[380px] md:min-h-0">
                 {/* Subtle Visual Identity Drop Shadow/Glow Accents */}
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none shadow-[inset_0_0_40px_rgba(168,85,247,0.02)]" />
                 <div className="absolute top-0 right-0 p-8 font-mono text-purple-500/[0.03] group-hover:text-purple-500/[0.08] text-7xl font-black tracking-tighter select-none transition-all duration-700 transform group-hover:-translate-y-2">02</div>
@@ -226,7 +228,7 @@ export default function Home() {
               </Link>
 
               {/* STAGE 03: BUILD (Engineering) */}
-              <Link href="/developer-journey" className="flex-1 relative group overflow-hidden bg-[#0b0b0b] flex flex-col justify-between p-8 md:p-12 transition-all duration-700 ease-[0.16, 1, 0.3, 1] hover:flex-[1.25] text-left">
+              <Link href="/developer-journey" className="flex-1 relative group overflow-hidden bg-[#0b0b0b] flex flex-col justify-between p-8 md:p-12 transition-all duration-700 ease-[0.16, 1, 0.3, 1] hover:flex-[1.25] text-left min-h-[380px] md:min-h-0">
                 {/* Subtle Visual Identity Drop Shadow/Glow Accents */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none shadow-[inset_0_0_40px_rgba(0,194,255,0.02)]" />
                 <div className="absolute top-0 right-0 p-8 font-mono text-cyan-500/[0.03] group-hover:text-cyan-500/[0.08] text-7xl font-black tracking-tighter select-none transition-all duration-700 transform group-hover:-translate-y-2">03</div>
