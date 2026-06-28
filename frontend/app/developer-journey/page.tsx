@@ -28,6 +28,15 @@ export default function DeveloperPage() {
       tech: ["MongoDB", "Express", "React", "Node.js", "Leaflet.js"]
     },
     {
+      name: "SmartSpend India",
+      link: "https://smartspend-india-fycu3h9ljwqxmxgn2wunwa.streamlit.app", // Replace with your repository link
+      problem: "Grocery inflation fluctuates rapidly, and retail tactics like shrinkflation (reducing item sizes while keeping prices stable) hide the true cost-per-unit metrics from everyday shoppers.",
+      solution: "Engineered an interactive data product that tracks inflation curves across 10 major Indian metro areas, computes true normalized cost indexes (₹/KG), and handles dynamic simulation fallbacks.",
+      engineering: "Designed a clean, decoupled architecture using NumPy array vectorization for fast indexing calculations and Pandas to process transaction loops. Rendered the UI via Streamlit, plotting metrics with interactive Plotly Express structures over an SQLite3 data layer.",
+      learning: "As a BA + UX Researcher, this project taught me how to take dense metropolitan market matrices and turn them into intuitive, rule-based AI Copilot advisories that reduce layout complexity.",
+      tech: ["Streamlit", "Python", "NumPy", "Pandas", "Plotly Express", "SQLite3"]
+    },
+    {
       name: "Retail Dashboard",
       link: "https://retail-pulse-eta.vercel.app/",
       problem: "Small store owners struggle to visualize their shifting inventory levels and daily sales patterns inside a clean, simple workspace.",
