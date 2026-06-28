@@ -56,7 +56,7 @@ export default function Home() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="text-center mt-12"
             >
-              <h2 className="text-white/40 font-mono text-[10px] uppercase tracking-[0.6em] italic mb-4">
+              <h2 className="text-white/40 font-mono text-[18px] uppercase tracking-[0.6em] italic mb-4">
                 Hi! I an Aditi 
               </h2>
               <div className="w-48 h-[1px] bg-white/5 mx-auto relative overflow-hidden">

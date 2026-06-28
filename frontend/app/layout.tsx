@@ -4,9 +4,11 @@ import "./globals.css"; // THIS IS THE LINE THAT BRINGS IN THE DESIGN
 export const metadata = {
   title: "Aditi Verma | Engineer & Designer",
   description: "The Logic of an Engineer. The Soul of a Designer. Portfolio of Aditi Verma.",
+  metadataBase: new URL('http://localhost:3000'),
   openGraph: {
     images: ['/spec_girl_intro.png'], // This makes your Memoji the preview image!
   },
+  
 };
 
 export default function RootLayout({

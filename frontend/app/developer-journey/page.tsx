@@ -118,14 +118,13 @@ export default function DeveloperPage() {
             className="flex-shrink-0 w-64 h-64 md:w-96 md:h-96 relative opacity-20 mx-auto md:mx-0"
           >
             <Image 
-              src="/spec_girl_intro.png" 
-              alt="😜" 
-              fill 
-              priority
-              loading="eager"
-              sizes="(max-width: 768px) 100vw, 384px"
-              className="object-contain grayscale contrast-125 drop-shadow-[0_0_40px_rgba(34,211,238,0.3)]" 
-            />
+  src="/spec_girl_intro.png" 
+  alt="😜" 
+  fill 
+  priority
+  sizes="(max-width: 768px) 100vw, 384px"
+  className="object-contain grayscale contrast-125 drop-shadow-[0_0_40px_rgba(34,211,238,0.3)]" 
+/>
           </motion.div>
         </div>
       </section>
