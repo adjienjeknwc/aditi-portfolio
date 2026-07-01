@@ -44,7 +44,25 @@ export default function DeveloperPage() {
       engineering: "Utilized Next.js server-side structures alongside Tailwind CSS for fluid responsive grids and Chart.js for data mapping.",
       learning: "Gave me a deeper understanding of formatting raw database object payloads into structured arrays that chart modules can digest without loading lag.",
       tech: ["Next.js", "Tailwind CSS", "Chart.js", "JavaScript"]
-    }
+    },
+    {
+      name: "FinCompass",
+      link: "https://fincompass-diwiyajon8dwans9r8hro8.streamlit.app/", // Replace with your repo link
+      problem: "Evaluating systemic banking backlogs, digital fraud trajectories, and regulatory compliance under the RBI Integrated Ombudsman Scheme requires processing heavy unstructured grievance streams without losing statistical integrity.",
+      solution: "Engineered an end-to-end supervisory analytics and data pipeline that ingests, cleanses, and runs statistical predictive analytics over 15,000 synthetic grievance matrices to mimic central bank oversight operations.",
+      engineering: "Built a robust Python ETL pipeline utilizing Z-score validation and SQLAlchemy to map relational entities to an SQLite3 instance. Developed a statistical modeling layer running Welch's t-tests, OLS regression, and SARIMAX time-series forecasting via SciPy and StatsModels. Integrated a scikit-learn NLP text classification channel alongside a LangChain + ChromaDB + Gemini Flash RAG architecture for semantic policy querying, rendering a multi-page interactive Streamlit viewport.",
+      learning: "Designed specifically to meet strict data requirements for regulatory analytics. This project taught me how to translate advanced statistical thresholds (p-values, trend coefficients) into automated, formal policy briefs.",
+      tech: ["Python", "Streamlit", "NumPy & Pandas", "StatsModels", "scikit-learn", "LangChain", "SQLite3"]
+    },
+    {
+      name: "SentinelScale",
+      link: "https://github.com/adjienjeknwc/sentinel-scale.git", // Replace with your repository link
+      problem: "Protecting high-throughput production API endpoints against evolving application-layer exploits and zero-day injection attacks typically introduces significant processing bottlenecks and edge validation overhead.",
+      solution: "Engineered a distributed, high-performance API Gatekeeper and Telemetry Observability Engine combining sub-millisecond Go reverse-proxying, asynchronous Apache Kafka event ingestion, and multi-tier AI anomaly protection.",
+      engineering: "Developed a native Go ingress edge proxy layer utilizing detached execution paths and automated SHA-256 caching routines to maintain a sub-1ms routing signature. Offloaded raw tracking telemetry logs asynchronously via an active Apache Kafka/Redpanda cluster into a Python AI Audit Service running a multi-tier defense architecture: Local Regex (Tier 1), a Transformer model deployed on an onnxruntime inference engine (Tier 2), and a Google GenAI SDK deep LLM scanner (Tier 3). Consolidated data indexing using PostgreSQL 16 with a pgvector HNSW cosine-similarity store, streaming real-time alerts via WebSockets to a Next.js console dashboard equipped with interactive D3.js coordinates.",
+      learning: "Taught me the fundamentals of building low-latency middleware. I learned how to decouple real-time execution pipelines from heavy analytical evaluations using event streams to ensure deep security scans never block user traffic.",
+      tech: ["Go (Golang)", "Apache Kafka", "Python", "PostgreSQL (pgvector)", "Next.js", "ONNX Runtime", "WebSockets"]
+    },
   ];
 
   const learningProjects = [

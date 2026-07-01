@@ -233,51 +233,97 @@ Acceptance Criteria (Given-When-Then Framework):
       </section>
 
       {/* 8. AGENT PORTAL CASE STUDY */}
-      <section id="agent-portal" className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-20 scroll-mt-24">
-        <div className="mb-12">
-          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// CASE_STUDY"}</p>
-          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">Agent Portal Case Study</h2>
-        </div>
-
-        <div className="border border-white/10 rounded-2xl bg-neutral-950/40 p-6 md:p-10 space-y-10 font-sans text-xs md:text-sm">
+      {/* ENTERPRISE CASE STUDY SECTION */}
+      <section className="py-24 px-8 md:px-20 max-w-[1600px] mx-auto z-20 relative border-t border-white/5">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 border-b border-white/5 pb-8">
-            <div className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">Project Overview</div>
-            <div className="md:col-span-3 text-gray-400 font-light italic leading-relaxed">
-              The project involved designing structural business requirements and functional behaviors for an enterprise Life Insurance Agent Portal used by distributed non-captive agents to process client coverage applications.
+          {/* Left Anchor: Context & Metadata */}
+          <div className="lg:w-1/3 space-y-4">
+            <p className="text-emerald-400 font-mono text-[10px] uppercase tracking-[0.4em] italic">// ENTERPRISE CONSULTING CASE STUDY</p>
+            <h2 className="text-4xl md:text-5xl font-black text-white italic uppercase tracking-tighter leading-none">
+              Insurance <br />
+              <span className="text-gray-500">Agent Portal.</span>
+            </h2>
+            <p className="text-gray-400 font-sans text-sm font-light leading-relaxed pt-2">
+              A deep dive into system architecture design, multi-stakeholder requirements mapping, and functional system specifications drafted during my corporate advisory stint at EY.
+            </p>
+            
+            <div className="pt-4 flex flex-wrap gap-2">
+              {["BRD / FSD", "User Stories", "Process Mapping", "UML Modeling", "Agile Jira"].map((tag) => (
+                <span key={tag} className="text-[9px] font-mono border border-white/10 bg-[#0a0a0a] px-3 py-1 rounded-full text-gray-500 tracking-wide uppercase">
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 border-b border-white/5 pb-8">
-            <div className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">Business Problem</div>
-            <div className="md:col-span-3 text-gray-400 font-light italic leading-relaxed">
-              Legacy distribution channels relied on manual compliance checkpoints that delayed agent onboarding processing. A lack of real-time visibility into the status of underwriting reviews led to continuous follow-up loops and incomplete policy drops.
-            </div>
-          </div>
+          {/* Right Anchor: Core BA Artifacts Grid */}
+          <div className="flex-1 w-full border border-white/10 p-8 md:p-12 rounded-[2.5rem] bg-[#070707] flex flex-col justify-between">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans text-sm text-gray-400 mb-10">
+              
+              <div className="space-y-2">
+                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 01. The Business Challenge</h4>
+                <p className="font-light leading-relaxed italic">
+                  Legacy commercial insurance workflows relied on disjointed, manual offline checks—causing significant delays in policy execution, processing bottlenecks, and lost underwriting data velocity.
+                </p>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 border-b border-white/5 pb-8">
-            <div className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">Users & Stakeholders</div>
-            <div className="md:col-span-3 text-gray-400 font-light italic leading-relaxed">
-              The platform directly impacts field distribution agents needing rapid pricing configurations, office underwriting teams managing operational exception metrics, and compliance officers tracking audit parameters.
-            </div>
-          </div>
+              <div className="space-y-2">
+                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 02. Requirements Engineering</h4>
+                <p className="font-light leading-relaxed italic">
+                  Gathered raw multi-stakeholder requirements to construct standard **Business Requirements Documents (BRD)** and **Functional Specification Documents (FSD)** mapping stateless verification states.
+                </p>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 border-b border-white/5 pb-8">
-            <div className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">My Responsibilities</div>
-            <div className="md:col-span-3 text-gray-400 font-light italic leading-relaxed space-y-2">
-              <p>&bull; Assisted in gathering requirements and documenting operational validation metrics for lead forms.</p>
-              <p>&bull; Mapped high-level policy lifecycles and structured user story breakdowns with strict acceptance criteria.</p>
-              <p>&bull; Mapped explicit conditional parameters for premium calculators and medical underwriting routing parameters.</p>
-            </div>
-          </div>
+              <div className="space-y-2">
+                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 03. Workflow Architecture</h4>
+                <p className="font-light leading-relaxed italic">
+                  Designed comprehensive swimlane diagrams and system sequence maps to track cross-functional access controls across customer identity layers and backend verification routes.
+                </p>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="font-mono text-xs font-bold text-emerald-400 uppercase tracking-wider">Key Learnings</div>
-            <div className="md:col-span-3 text-gray-400 font-light italic leading-relaxed">
-              Gained first-hand domain insight into core insurance processes, policy issuance structures, and compliance rules. Learned how detailed documentation directly impacts development velocity by addressing process questions before code construction begins.
-            </div>
-          </div>
+              <div className="space-y-2">
+                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 04. Agile Delivery Alignment</h4>
+                <p className="font-light leading-relaxed italic">
+                  Translated high-level business logic matrices into crisp, scannable **User Stories** complete with exhaustive, strict **Acceptance Criteria** for engineering execution sprints.
+                </p>
+              </div>
 
+            </div>
+
+            {/* Deep Link Call to Action */}
+            <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+              <div className="font-mono text-xs text-gray-500">
+                📍 Enterprise Architecture Matrix &bull; Sync Verified
+              </div>
+              
+              {/* Dual Action Buttons Group */}
+              <div className="flex flex-col min-w-full sm:min-w-0 sm:flex-row items-center gap-3 w-full sm:w-auto">
+                
+                {/* Action 1: Notion Deep Dive Document */}
+                <a 
+                  href="https://app.notion.com/p/Case-Study-Betacare-Life-Insurance-Agent-Portal-390be7f0e9f3805ca6c8db8d2335204b?source=copy_link" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto text-center border border-white/10 text-white/80 bg-[#0d0d0d] rounded-full px-6 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white/5 hover:text-white transition-all text-[10px]"
+                >
+                  Read Case Study 📖
+                </a>
+
+                {/* Action 2: Live Deployment Interface Link */}
+                <a 
+                  href="https://betacare-agentportal.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-500 text-black rounded-full text-xs font-bold uppercase tracking-widest hover:bg-emerald-400 transition-all shadow-[0_0_30px_rgba(16,185,129,0.15)] group hover:scale-105 text-[10px]"
+                >
+                  Launch Live Portal <span className="text-sm transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </a>
+
+              </div>
+            </div>
+            
+          </div>
         </div>
       </section>
 
@@ -416,8 +462,6 @@ Acceptance Criteria (Given-When-Then Framework):
             <h4 className="text-xl md:text-2xl font-sans font-black uppercase text-white tracking-tight italic">
               Ready to build products that solve business problems.
             </h4>
-            
-            
           </div>
         </div>
       </section>
