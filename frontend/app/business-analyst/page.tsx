@@ -35,19 +35,17 @@ export default function BusinessAnalystPage() {
       type: "BRD Extract",
       desc: "Documenting business objectives, user profiles, functional scope boundaries, and delivery dependencies.",
       content: `BUSINESS REQUIREMENTS DOCUMENT (BRD)
-PROJECT: LIFE INSURANCE AGENT PORTAL
+PROJECT: AGENTIC AI INSURANCE PORTAL
 
 1. Business Objective
-The objective is to digitize manual documentation loops within the onboarding workflow for independent agents, lowering the complete processing timeline from 5 days to under 48 hours.
+The objective is to integrate automated intelligence into the lead management workflow, reducing the manual profile audit and compliance review time from 15 minutes to under 5 seconds.
 
-2. Stakeholder Matrix
-• Regional Distribution Managers (Business Sponsor)
-• Operations Underwriters (Process Owners)
-• Independent Field Agents (Primary Users)
+2. Functional Scope Boundaries
+• FR-001 (AI Sales Advisor): System must coordinate a sequential multi-agent crew (Analyst, Designer, QA) to recommend optimal policies, matching riders, and objection scripts.
+• FR-002 (Broker OTP Security): Portal must enforce a 3-step OTP password reset flow to prevent unauthorized account changes.
 
-3. High-Level Business Requirements
-• System must securely capture and cross-check agent license numbers against regulatory databases before opening quote features.
-• Portal must automatically flag high-risk applications for prioritize underwriter review based on coverage limits.`
+3. Key Dependencies
+• High-speed Node.js Gemini API proxy is required to bypass Vercel serverless Hobby 10-second timeout constraints in production.`
     },
     {
       id: "fsd",
@@ -55,16 +53,17 @@ The objective is to digitize manual documentation loops within the onboarding wo
       type: "FSD Extract",
       desc: "Outlining user interface field behaviors, input parameters, system rules, and UI validation errors.",
       content: `FUNCTIONAL SPECIFICATION DOCUMENT (FSD)
-MODULE: PREMIUM CALCULATOR FORM
+MODULE: AI SALES ADVISOR ASSESSOR
 
-1. UI Input Field: Customer_Age
-• Data Type: Integer
-• Range Constraint: 18 to 65
-• Field Validation: If the field is left blank or contains non-numeric strings, display warning text: "Customer age must be between 18 and 65."
+1. System Trigger: Run AI Profile Assessment
+• UI Action: User clicks "Run AI Profile Assessment & Audit" button.
+• Backend Validation: If customer's annual income is missing or less than zero, return error code: "Cannot execute audit: Missing income parameter."
 
-2. Exception Handling Logic
-• If the external address lookup service times out, cache the entered form variables locally within the user session state.
-• Generate an automated background ticket in the manual processing queue without interrupting the agent's navigation flow.`
+2. Low-Income Exception Handling Rule
+• If applicant's annual income is less than 300,000 INR:
+  - Set suitability rating automatically to 'Low Fit'.
+  - Restrict standard policy recommendations.
+  - Enforce recommending basic 'Micro-Insurance Term' plans in the output card.`
     },
     {
       id: "rules",
@@ -72,16 +71,17 @@ MODULE: PREMIUM CALCULATOR FORM
       type: "Validation Logic Map",
       desc: "Conditional validation thresholds, policy status flags, and compliance underwriting rules.",
       content: `BUSINESS RULES MATRIX
-LIFE INSURANCE PLATFORM LOGIC
+AGENTIC LLM PITCH LOGIC
 
-Rule ID: RULE-ONB-01 [Medical Underwriting Routing]
-• IF: Customer Age > 60 OR Proposed Sum Assured > 5,000,000 INR
-• THEN: Route application state automatically to 'Medical Underwriting Pending' and place it in the Underwriter Review Queue.
-• ELSE: Route application directly to the Standard Automated Verification track.
+Rule ID: RULE-SA-01 [Sum Assured Multiplier check]
+• IF: Target Coverage amount is < (10x Annual Income) OR > (20x Annual Income)
+• THEN: Flag coverage as 'Inadequate' or 'High Risk' in the validation report.
+• ELSE: Approve Sum Assured adequacy.
 
-Rule ID: RULE-PAY-02 [Premium Failure Exception]
-• IF: Core Banking Gateway returns a 'Payment Failed' status code
-• THEN: Update Policy Status to 'Pending Premium' and hold automated document generation.`
+Rule ID: RULE-SEC-02 [OTP Verification Expiry]
+• IF: Current Time > (resetOtpExpires timestamp) OR resetOtp does not match input
+• THEN: Return status 400 with: "Invalid or expired verification OTP code."
+• ELSE: Accept validation and proceed to Step 3.`
     },
     {
       id: "stories",
@@ -89,18 +89,19 @@ Rule ID: RULE-PAY-02 [Premium Failure Exception]
       type: "Agile Backlog Artifact",
       desc: "Agile feature definitions, user perspectives, functional scenarios, and test readiness parameters.",
       content: `AGILE TICKET SPECIFICATION
-FEATURE: Save Lead Draft Progress
+FEATURE: BCA-101 Run Automated AI Assessment
 
 User Story:
-AS AN Insurance Agent,
-I WANT TO save an incomplete customer onboarding file as a Draft record,
-SO THAT I can finish collecting medical history documents later without losing the data I already entered.
+AS AN Insurance Agent (Broker),
+I WANT TO trigger an automated AI profile assessment on a customer lead,
+SO THAT I get an instant recommendation of the optimal policy, riders, and sales pitch notes.
 
 Acceptance Criteria (Given-When-Then Framework):
-• GIVEN an authenticated agent has filled out a customer's basic identity data but left medical questionnaires blank,
-• WHEN they trigger the 'Save Draft' button action,
-• THEN save the session data to the database collection with the state 'DRAFT_INCOMPLETE',
-• AND display a confirmation banner stating: "Draft progress saved."`
+• GIVEN an authenticated agent is on the Lead Details screen,
+• WHEN they click 'Run AI Profile Assessment & Audit',
+• THEN spin up the multi-agent crew to evaluate the profile,
+• AND render the suitability rating ('Optimal Fit'/'Moderate Fit'/'Low Fit') and pitch scripts in the Advisor card.
+• AND guarantee the API returns the results in under 5 seconds.`
     }
   ];
 
@@ -233,7 +234,6 @@ Acceptance Criteria (Given-When-Then Framework):
       </section>
 
       {/* 8. AGENT PORTAL CASE STUDY */}
-      {/* ENTERPRISE CASE STUDY SECTION */}
       <section className="py-24 px-8 md:px-20 max-w-[1600px] mx-auto z-20 relative border-t border-white/5">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
           
@@ -249,7 +249,7 @@ Acceptance Criteria (Given-When-Then Framework):
             </p>
             
             <div className="pt-4 flex flex-wrap gap-2">
-              {["BRD / FSD", "User Stories", "Process Mapping", "UML Modeling", "Agile Jira"].map((tag) => (
+              {["Agentic AI", "User Stories", "Process Mapping", "UML Modeling", "Agile Jira"].map((tag) => (
                 <span key={tag} className="text-[9px] font-mono border border-white/10 bg-[#0a0a0a] px-3 py-1 rounded-full text-gray-500 tracking-wide uppercase">
                   {tag}
                 </span>
@@ -264,28 +264,28 @@ Acceptance Criteria (Given-When-Then Framework):
               <div className="space-y-2">
                 <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 01. The Business Challenge</h4>
                 <p className="font-light leading-relaxed italic">
-                  Legacy commercial insurance workflows relied on disjointed, manual offline checks—causing significant delays in policy execution, processing bottlenecks, and lost underwriting data velocity.
+                  Legacy manual operations created severe backlogs in lead profiling, sum assured validations, and compliant rider suggestions, causing high sales TAT.
                 </p>
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 02. Requirements Engineering</h4>
+                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 02. Agentic AI Orchestration</h4>
                 <p className="font-light leading-relaxed italic">
-                  Gathered raw multi-stakeholder requirements to construct standard **Business Requirements Documents (BRD)** and **Functional Specification Documents (FSD)** mapping stateless verification states.
+                  Engineered the specifications for a multi-agent sales advisor crew (Analyst, Designer, QA) using CrewAI and Gemini to automate profiling, sum-assured audits, and objections scripting.
                 </p>
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 03. Workflow Architecture</h4>
+                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 03. Technical Constraints Solving</h4>
                 <p className="font-light leading-relaxed italic">
-                  Designed comprehensive swimlane diagrams and system sequence maps to track cross-functional access controls across customer identity layers and backend verification routes.
+                  Resolved serverless timeout limits on Vercel Hobby accounts by mapping a dual-mode engine (local Python CrewAI subprocess + direct high-speed Gemini API proxy).
                 </p>
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 04. Agile Delivery Alignment</h4>
+                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 04. Security Sentinel Flow</h4>
                 <p className="font-light leading-relaxed italic">
-                  Translated high-level business logic matrices into crisp, scannable **User Stories** complete with exhaustive, strict **Acceptance Criteria** for engineering execution sprints.
+                  Redesigned the credential recovery workflow into a 3-step security OTP validation sequence with strict password length constraints and automated bcrypt pre-save encryption hooks.
                 </p>
               </div>
 
@@ -312,7 +312,7 @@ Acceptance Criteria (Given-When-Then Framework):
 
                 {/* Action 2: Live Deployment Interface Link */}
                 <a 
-                  href="https://betacare-agentportal.vercel.app/" 
+                  href="https://betacare-agentportal-ai.vercel.app" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-500 text-black rounded-full text-xs font-bold uppercase tracking-widest hover:bg-emerald-400 transition-all shadow-[0_0_30px_rgba(16,185,129,0.15)] group hover:scale-105 text-[10px]"
