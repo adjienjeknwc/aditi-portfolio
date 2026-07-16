@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function BusinessAnalystPage() {
+export default function BusinessAnalystPage({ onBack }: { onBack?: () => void }) {
   const [expandedDoc, setExpandedDoc] = useState<string | null>(null);
 
   const consultingHighlights = [
@@ -118,43 +119,63 @@ Acceptance Criteria (Given-When-Then Framework):
   ];
 
   return (
-    <main className="min-h-screen bg-[#030303] text-[#d4d4d8] font-sans antialiased selection:bg-emerald-500/20 overflow-x-hidden pb-20">
+    <main className="min-h-screen bg-[#fbfaf7] text-[#1a1a1a] font-sans antialiased selection:bg-emerald-500/10 overflow-x-hidden pb-20">
       
       {/* BACKGROUND MATRIX GRID OVERLAY */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#09140e_1px,transparent_1px),linear-gradient(to_bottom,#09140e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none z-0" />
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none z-0" />
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.08)_0%,transparent_70%)] pointer-events-none z-0" />
 
       {/* 1. NAVIGATION BAR */}
-      <nav className="fixed top-0 w-full z-[100] px-6 py-4 flex justify-between items-center bg-[#030303]/70 backdrop-blur-md border-b border-white/5">
-        <Link href="/" className="px-4 py-2 border border-emerald-500/20 bg-emerald-950/10 text-emerald-400 font-mono text-[10px] font-bold uppercase tracking-widest rounded hover:bg-emerald-500/10 transition-all">
-          ← RETURN TO LIFECYCLE
-        </Link>
-        <div className="flex items-center gap-6 font-mono text-[10px] tracking-widest text-gray-400">
-          <a href="https://github.com/adjienjeknwc" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GITHUB</a>
-          <a href="https://www.linkedin.com/in/aditi-verma-8b8220287" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LINKEDIN</a>
+      <nav className="fixed top-0 w-full z-[100] px-6 py-4 flex justify-between items-center bg-[#fbfaf7]/70 backdrop-blur-md border-b border-black/5">
+        {onBack ? (
+          <button onClick={onBack} className="px-4 py-2 border border-emerald-500/20 bg-emerald-500/5 text-emerald-700 font-mono text-[10px] font-bold uppercase tracking-widest rounded hover:bg-emerald-500/10 transition-all cursor-pointer">
+            ← RETURN TO LIFECYCLE
+          </button>
+        ) : (
+          <Link href="/explore" className="px-4 py-2 border border-emerald-500/20 bg-emerald-500/5 text-emerald-700 font-mono text-[10px] font-bold uppercase tracking-widest rounded hover:bg-emerald-500/10 transition-all">
+            ← RETURN TO LIFECYCLE
+          </Link>
+        )}
+        <div className="flex items-center gap-6 font-mono text-[10px] tracking-widest text-slate-500">
+          <a href="https://github.com/adjienjeknwc" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors">GITHUB</a>
+          <a href="https://www.linkedin.com/in/aditi-verma-8b8220287" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors">LINKEDIN</a>
         </div>
       </nav>
 
       {/* 2. HERO SECTION */}
       <section className="min-h-[75vh] flex flex-col justify-center px-8 md:px-20 max-w-6xl mx-auto pt-32 relative z-10">
-        <div className="space-y-4 max-w-4xl">
-          <p className="text-emerald-400 font-mono tracking-[0.4em] text-[10px] uppercase">// PROFESSIONAL OVERVIEW</p>
-          <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white italic leading-[0.9]">
-            THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">ANALYST.</span>
-          </h1>
-          <p className="text-gray-400 text-lg md:text-xl font-light leading-relaxed font-sans pt-4">
-            I begin by understanding the business before defining the solution. My internship at EY taught me how to convert business problems into structured documentation, process flows, user stories, and implementation-ready requirements. I focus on keeping requirements clear, realistic, and completely aligned with project goals.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 max-w-5xl">
+          <div className="space-y-4 max-w-3xl">
+            <p className="text-emerald-600 font-mono tracking-[0.4em] text-[10px] uppercase">// PROFESSIONAL OVERVIEW</p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+              <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-slate-900 italic leading-[0.9]">
+                THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-teal-600">ANALYST.</span>
+              </h1>
+              <div className="w-16 h-16 md:w-24 md:h-24 relative rounded-full overflow-hidden border-2 border-emerald-500/20 shadow-md bg-emerald-50/50 flex-shrink-0">
+                <Image 
+                  src="/spec_girl_intro_v2.png" 
+                  alt="Aditi Verma" 
+                  fill 
+                  priority
+                  className="object-cover scale-110" 
+                  sizes="(max-width: 768px) 64px, 96px"
+                />
+              </div>
+            </div>
+            <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed font-sans pt-4">
+              I begin by understanding the business before defining the solution. My internship at EY taught me how to convert business problems into structured documentation, process flows, user stories, and implementation-ready requirements. I focus on keeping requirements clear, realistic, and completely aligned with project goals.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* SECTION 9: CONSULTING HIGHLIGHT METRIC STRIP */}
-      <section className="border-t border-b border-white/5 bg-[#050706] py-8 px-8 md:px-20 z-10 relative">
+      <section className="border-t border-b border-black/5 bg-[#eefdf7] py-8 px-8 md:px-20 z-10 relative">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6">
           {consultingHighlights.map((item, idx) => (
-            <div key={idx} className="border-l border-emerald-500/30 pl-4 font-mono">
-              <p className="text-[9px] uppercase text-gray-500 tracking-wider mb-1">{item.label}</p>
-              <p className="text-xs uppercase text-white font-bold tracking-tight">{item.value}</p>
+            <div key={idx} className="border-l border-emerald-500/50 pl-4 font-mono">
+              <p className="text-[9px] uppercase text-slate-500 tracking-wider mb-1">{item.label}</p>
+              <p className="text-xs uppercase text-slate-800 font-bold tracking-tight">{item.value}</p>
             </div>
           ))}
         </div>
@@ -164,51 +185,51 @@ Acceptance Criteria (Given-When-Then Framework):
       <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div className="space-y-4">
-            <p className="text-emerald-500 font-mono text-[10px] tracking-[0.4em] uppercase">// METHODOLOGY & PRACTICE</p>
-            <h3 className="text-2xl md:text-3xl font-black uppercase text-white italic tracking-tight">How I Think as a Business Analyst</h3>
-            <div className="space-y-4 font-sans text-sm text-gray-400 font-light leading-relaxed">
+            <p className="text-emerald-600 font-mono text-[10px] tracking-[0.4em] uppercase">// METHODOLOGY & PRACTICE</p>
+            <h3 className="text-2xl md:text-3xl font-black uppercase text-slate-950 italic tracking-tight">How I Think as a Business Analyst</h3>
+            <div className="space-y-4 font-sans text-sm text-slate-600 font-light leading-relaxed">
               {philosophyPoints.map((point, idx) => (
                 <div key={idx} className="space-y-1">
-                  <h4 className="text-white font-medium not-italic text-sm">&bull; {point.title}</h4>
-                  <p className="pl-4 italic text-gray-500 text-[13px]">{point.text}</p>
+                  <h4 className="text-slate-800 font-medium not-italic text-sm">&bull; {point.title}</h4>
+                  <p className="pl-4 italic text-slate-500 text-[13px]">{point.text}</p>
                 </div>
               ))}
             </div>
           </div>
-          <div className="bg-emerald-950/5 border border-emerald-900/10 p-6 rounded-xl font-mono text-[11px] text-gray-500 space-y-2 self-center">
-            <p className="text-emerald-400 font-bold uppercase tracking-wider mb-2">// INSIGHT FROM EXPERIENCE</p>
+          <div className="bg-white border border-emerald-500/20 p-6 rounded-xl font-mono text-[11px] text-slate-600 space-y-2 self-center shadow-sm">
+            <p className="text-emerald-700 font-bold uppercase tracking-wider mb-2">// INSIGHT FROM EXPERIENCE</p>
             <p>Spending systematic upfront effort in defining exception handling, validation limits, and status logic keeps development moving and avoids expensive rework mid-sprint.</p>
           </div>
         </div>
       </section>
 
       {/* 3. EY EXPERIENCE SECTION */}
-      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-black/5 relative z-10">
         <div className="space-y-3 mb-12">
-          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// PROFESSIONAL_EXPERIENCE"}</p>
-          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">EY Experience</h2>
-          <p className="text-xs font-mono text-gray-500 uppercase italic">Business Analyst Intern | Enterprise Insurance Consulting</p>
+          <p className="text-emerald-600 font-mono text-[10px] tracking-[0.4em] uppercase">{"// PROFESSIONAL_EXPERIENCE"}</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">EY Experience</h2>
+          <p className="text-xs font-mono text-emerald-700 uppercase italic">Business Analyst Intern | Enterprise Insurance Consulting</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-sm font-sans">
-          <div className="p-6 border border-white/5 bg-neutral-950/40 rounded-xl space-y-2">
-            <h4 className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">About the Project</h4>
-            <p className="text-gray-400 text-xs font-light leading-relaxed italic">
+          <div className="p-6 border border-emerald-500/10 bg-white rounded-xl space-y-2 shadow-sm">
+            <h4 className="text-xs font-mono text-emerald-700 font-bold uppercase tracking-wider">About the Project</h4>
+            <p className="text-slate-600 text-xs font-light leading-relaxed italic">
               Worked on a Life Insurance Agent Portal designed to handle the core insurance lifecycle—from lead capture and quotation to underwriting routing, premium payment validation, and policy renewal tracks.
             </p>
           </div>
-          <div className="p-6 border border-white/5 bg-neutral-950/40 rounded-xl space-y-2">
-            <h4 className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">What I Worked On</h4>
-            <ul className="text-gray-400 text-xs font-light space-y-1.5 list-disc pl-4 italic">
+          <div className="p-6 border border-emerald-500/10 bg-white rounded-xl space-y-2 shadow-sm">
+            <h4 className="text-xs font-mono text-emerald-700 font-bold uppercase tracking-wider">What I Worked On</h4>
+            <ul className="text-slate-600 text-xs font-light space-y-1.5 list-disc pl-4 italic">
               <li>Gathered and organized project requirements from mentorship discussions.</li>
               <li>Drafted BRD and FSD document structures for underwriting and onboarding tracks.</li>
               <li>Prepared clear user stories, validation rules, and acceptance criteria.</li>
               <li>Reviewed layouts to ensure wireframes lined up with documented specifications.</li>
             </ul>
           </div>
-          <div className="p-6 border border-white/5 bg-neutral-950/40 rounded-xl space-y-2">
-            <h4 className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">What I Learned</h4>
-            <p className="text-gray-400 text-xs font-light leading-relaxed italic">
+          <div className="p-6 border border-emerald-500/10 bg-white rounded-xl space-y-2 shadow-sm">
+            <h4 className="text-xs font-mono text-emerald-700 font-bold uppercase tracking-wider">What I Learned</h4>
+            <p className="text-slate-600 text-xs font-light leading-relaxed italic">
               Gained practical experience converting loose business needs into clear requirements. Learned how to communicate across business and development groups, map processes accurately, and protect agile delivery sprint tracks from scope creep.
             </p>
           </div>
@@ -216,41 +237,41 @@ Acceptance Criteria (Given-When-Then Framework):
       </section>
 
       {/* 6. BUSINESS ANALYSIS PROCESS FLOW */}
-      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-black/5 relative z-10">
         <div className="mb-12">
-          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// OPERATION_STEPS"}</p>
-          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">My Business Analysis Approach</h2>
+          <p className="text-emerald-600 font-mono text-[10px] tracking-[0.4em] uppercase">{"// OPERATION_STEPS"}</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">My Business Analysis Approach</h2>
         </div>
 
-        <div className="relative border-l border-emerald-950 pl-6 space-y-6 font-mono text-xs max-w-3xl">
+        <div className="relative border-l border-emerald-200 pl-6 space-y-6 font-mono text-xs max-w-3xl">
           {workflowSteps.map((step, idx) => (
             <div key={idx} className="relative group">
-              <div className="absolute -left-[29px] top-1 w-2 h-2 rounded-full bg-[#030303] border border-emerald-400 transition-colors group-hover:bg-emerald-400" />
-              <h4 className="text-white font-bold uppercase tracking-tight text-xs transition-colors group-hover:text-emerald-400">{step.title}</h4>
-              {step.text && <p className="font-sans font-light italic text-gray-500 text-[13px] leading-relaxed pt-0.5">{step.text}</p>}
+              <div className="absolute -left-[29px] top-1 w-2 h-2 rounded-full bg-[#fbfaf7] border border-emerald-500 transition-colors group-hover:bg-emerald-500" />
+              <h4 className="text-slate-800 font-bold uppercase tracking-tight text-xs transition-colors group-hover:text-emerald-600">{step.title}</h4>
+              {step.text && <p className="font-sans font-light italic text-slate-500 text-[13px] leading-relaxed pt-0.5">{step.text}</p>}
             </div>
           ))}
         </div>
       </section>
 
       {/* 8. AGENT PORTAL CASE STUDY */}
-      <section className="py-24 px-8 md:px-20 max-w-[1600px] mx-auto z-20 relative border-t border-white/5">
+      <section className="py-24 px-8 md:px-20 max-[1600px] mx-auto z-20 relative border-t border-black/5">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
           
           {/* Left Anchor: Context & Metadata */}
           <div className="lg:w-1/3 space-y-4">
-            <p className="text-emerald-400 font-mono text-[10px] uppercase tracking-[0.4em] italic">// ENTERPRISE CONSULTING CASE STUDY</p>
-            <h2 className="text-4xl md:text-5xl font-black text-white italic uppercase tracking-tighter leading-none">
+            <p className="text-emerald-600 font-mono text-[10px] uppercase tracking-[0.4em] italic">// ENTERPRISE CONSULTING CASE STUDY</p>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 italic uppercase tracking-tighter leading-none">
               Insurance <br />
-              <span className="text-gray-500">Agent Portal.</span>
+              <span className="text-slate-400">Agent Portal.</span>
             </h2>
-            <p className="text-gray-400 font-sans text-sm font-light leading-relaxed pt-2">
+            <p className="text-slate-600 font-sans text-sm font-light leading-relaxed pt-2">
               A deep dive into system architecture design, multi-stakeholder requirements mapping, and functional system specifications drafted during my corporate advisory stint at EY.
             </p>
             
             <div className="pt-4 flex flex-wrap gap-2">
               {["Agentic AI", "User Stories", "Process Mapping", "UML Modeling", "Agile Jira"].map((tag) => (
-                <span key={tag} className="text-[9px] font-mono border border-white/10 bg-[#0a0a0a] px-3 py-1 rounded-full text-gray-500 tracking-wide uppercase">
+                <span key={tag} className="text-[9px] font-mono border border-emerald-500/10 bg-emerald-500/5 px-3 py-1 rounded-full text-emerald-800 tracking-wide uppercase">
                   {tag}
                 </span>
               ))}
@@ -258,32 +279,32 @@ Acceptance Criteria (Given-When-Then Framework):
           </div>
 
           {/* Right Anchor: Core BA Artifacts Grid */}
-          <div className="flex-1 w-full border border-white/10 p-8 md:p-12 rounded-[2.5rem] bg-[#070707] flex flex-col justify-between">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans text-sm text-gray-400 mb-10">
+          <div className="flex-1 w-full border border-emerald-500/20 p-8 md:p-12 rounded-[2.5rem] bg-white flex flex-col justify-between shadow-md">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans text-sm text-slate-700 mb-10">
               
               <div className="space-y-2">
-                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 01. The Business Challenge</h4>
+                <h4 className="text-xs font-mono text-emerald-700 uppercase tracking-wider font-bold">// 01. The Business Challenge</h4>
                 <p className="font-light leading-relaxed italic">
                   Legacy manual operations created severe backlogs in lead profiling, sum assured validations, and compliant rider suggestions, causing high sales TAT.
                 </p>
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 02. Agentic AI Orchestration</h4>
+                <h4 className="text-xs font-mono text-emerald-700 uppercase tracking-wider font-bold">// 02. Agentic AI Orchestration</h4>
                 <p className="font-light leading-relaxed italic">
                   Engineered the specifications for a multi-agent sales advisor crew (Analyst, Designer, QA) using CrewAI and Gemini to automate profiling, sum-assured audits, and objections scripting.
                 </p>
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 03. Technical Constraints Solving</h4>
+                <h4 className="text-xs font-mono text-emerald-700 uppercase tracking-wider font-bold">// 03. Technical Constraints Solving</h4>
                 <p className="font-light leading-relaxed italic">
                   Resolved serverless timeout limits on Vercel Hobby accounts by mapping a dual-mode engine (local Python CrewAI subprocess + direct high-speed Gemini API proxy).
                 </p>
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">// 04. Security Sentinel Flow</h4>
+                <h4 className="text-xs font-mono text-emerald-700 uppercase tracking-wider font-bold">// 04. Security Sentinel Flow</h4>
                 <p className="font-light leading-relaxed italic">
                   Redesigned the credential recovery workflow into a 3-step security OTP validation sequence with strict password length constraints and automated bcrypt pre-save encryption hooks.
                 </p>
@@ -292,8 +313,8 @@ Acceptance Criteria (Given-When-Then Framework):
             </div>
 
             {/* Deep Link Call to Action */}
-            <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-              <div className="font-mono text-xs text-gray-500">
+            <div className="border-t border-slate-100 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+              <div className="font-mono text-xs text-slate-400">
                 📍 Enterprise Architecture Matrix &bull; Sync Verified
               </div>
               
@@ -302,10 +323,10 @@ Acceptance Criteria (Given-When-Then Framework):
                 
                 {/* Action 1: Notion Deep Dive Document */}
                 <a 
-                  href="https://app.notion.com/p/Case-Study-Betacare-Life-Insurance-Agent-Portal-390be7f0e9f3805ca6c8db8d2335204b?source=copy_link" 
+                  href="https://app.notion.com/p/Business-Analyst-Case-Study-Agentic-AI-Integration-391be7f0e9f38007884bdd2091e4b3e2?source=copy_link" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto text-center border border-white/10 text-white/80 bg-[#0d0d0d] rounded-full px-6 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white/5 hover:text-white transition-all text-[10px]"
+                  className="w-full sm:w-auto text-center border border-slate-200 text-slate-700 bg-slate-50 rounded-full px-6 py-4 text-xs font-bold uppercase tracking-widest hover:bg-slate-100 transition-all text-[10px]"
                 >
                   Read Case Study 📖
                 </a>
@@ -315,7 +336,7 @@ Acceptance Criteria (Given-When-Then Framework):
                   href="https://betacare-agentportal-ai.vercel.app" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-500 text-black rounded-full text-xs font-bold uppercase tracking-widest hover:bg-emerald-400 transition-all shadow-[0_0_30px_rgba(16,185,129,0.15)] group hover:scale-105 text-[10px]"
+                  className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-600 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-emerald-500 transition-all shadow-[0_0_30px_rgba(16,185,129,0.15)] group hover:scale-105 text-[10px]"
                 >
                   Launch Live Portal <span className="text-sm transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </a>
@@ -328,12 +349,12 @@ Acceptance Criteria (Given-When-Then Framework):
       </section>
 
       {/* 2. BUSINESS ANALYSIS DELIVERABLES PREVIEW GRID */}
-      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-black/5 relative z-10">
         <div className="mb-4">
-          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// INTERNSHIP_ARTIFACTS"}</p>
-          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">Business Analysis Deliverables</h2>
+          <p className="text-emerald-600 font-mono text-[10px] tracking-[0.4em] uppercase">{"// INTERNSHIP_ARTIFACTS"}</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">Business Analysis Deliverables</h2>
         </div>
-        <p className="text-gray-400 font-sans font-light italic text-sm mb-12 max-w-xl">
+        <p className="text-slate-600 font-sans font-light italic text-sm mb-12 max-w-xl">
           During my internship, I worked on documenting business requirements, functional specifications, business rules, and user stories to support the development team. Click any card to inspect a realistic snippet.
         </p>
 
@@ -342,16 +363,16 @@ Acceptance Criteria (Given-When-Then Framework):
             <div 
               key={doc.id}
               onClick={() => setExpandedDoc(doc.id)}
-              className="border border-white/10 p-6 rounded-xl bg-neutral-950/40 hover:border-emerald-500/30 transition-all cursor-pointer flex flex-col justify-between group"
+              className="border border-emerald-500/10 p-6 rounded-xl bg-white hover:border-emerald-500/30 transition-all cursor-pointer flex flex-col justify-between group shadow-sm hover:shadow-md"
             >
               <div>
-                <p className="text-[9px] font-mono text-emerald-400 uppercase tracking-widest mb-3">{doc.type}</p>
-                <h4 className="text-base font-black text-white italic tracking-tight group-hover:text-emerald-400 transition-colors uppercase leading-tight mb-2">
+                <p className="text-[9px] font-mono text-emerald-600 uppercase tracking-widest mb-3">{doc.type}</p>
+                <h4 className="text-base font-black text-slate-800 italic tracking-tight group-hover:text-emerald-700 transition-colors uppercase leading-tight mb-2">
                   {doc.title}
                 </h4>
-                <p className="text-gray-500 font-sans font-light text-[11px] leading-relaxed italic">{doc.desc}</p>
+                <p className="text-slate-500 font-sans font-light text-[11px] leading-relaxed italic">{doc.desc}</p>
               </div>
-              <span className="text-[10px] font-mono text-emerald-500/40 mt-8 block group-hover:text-white transition-colors">View Sample →</span>
+              <span className="text-[10px] font-mono text-emerald-600/70 mt-8 block group-hover:text-emerald-900 transition-colors">View Sample →</span>
             </div>
           ))}
         </div>
@@ -364,7 +385,7 @@ Acceptance Criteria (Given-When-Then Framework):
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setExpandedDoc(null)}
-              className="fixed inset-0 z-[100000] bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+              className="fixed inset-0 z-[100000] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4"
             >
               {artifactData.filter(item => item.id === expandedDoc).map(item => (
                 <motion.div 
@@ -373,17 +394,17 @@ Acceptance Criteria (Given-When-Then Framework):
                   animate={{ scale: 1, y: 0 }}
                   exit={{ scale: 0.96, y: 15 }}
                   onClick={(e) => e.stopPropagation()}
-                  className="bg-[#050706] border border-emerald-500/20 p-6 md:p-8 rounded-xl max-w-2xl w-full text-left font-mono relative"
+                  className="bg-white border border-emerald-500/20 p-6 md:p-8 rounded-xl max-w-2xl w-full text-left font-mono relative shadow-2xl"
                 >
                   <button 
                     onClick={() => setExpandedDoc(null)}
-                    className="absolute top-6 right-6 text-[10px] font-bold text-gray-500 hover:text-white tracking-widest uppercase focus:outline-none"
+                    className="absolute top-6 right-6 text-[10px] font-bold text-slate-400 hover:text-slate-800 tracking-widest uppercase focus:outline-none"
                   >
                     [CLOSE]
                   </button>
-                  <p className="text-[9px] text-emerald-400 uppercase tracking-widest mb-1">{item.type}</p>
-                  <h3 className="text-base font-black text-white uppercase italic tracking-tight mb-6 border-b border-white/5 pb-4">{item.title}</h3>
-                  <pre className="text-xs text-gray-400 leading-relaxed whitespace-pre-wrap bg-black/60 p-4 rounded-lg border border-white/5 max-h-[300px] overflow-y-auto font-mono">
+                  <p className="text-[9px] text-emerald-600 uppercase tracking-widest mb-1">{item.type}</p>
+                  <h3 className="text-base font-black text-slate-900 uppercase italic tracking-tight mb-6 border-b border-slate-100 pb-4">{item.title}</h3>
+                  <pre className="text-xs text-slate-800 leading-relaxed whitespace-pre-wrap bg-slate-50 p-4 rounded-lg border border-slate-200 max-h-[300px] overflow-y-auto font-mono">
                     {item.content}
                   </pre>
                 </motion.div>
@@ -394,32 +415,32 @@ Acceptance Criteria (Given-When-Then Framework):
       </section>
 
       {/* NEW SECTION: QUESTIONS I LEARNED TO ASK */}
-      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-black/5 relative z-10">
         <div className="mb-12">
-          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// ANALYTICAL_DISCOVERY"}</p>
-          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">Questions I Learned to Ask</h2>
+          <p className="text-emerald-600 font-mono text-[10px] tracking-[0.4em] uppercase">// ANALYTICAL_DISCOVERY</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">Questions I Learned to Ask</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {discoveryQuestions.map((item, idx) => (
-            <div key={idx} className="p-6 border border-white/5 bg-neutral-950/20 rounded-xl space-y-2 font-sans">
-              <h4 className="text-base font-bold text-white uppercase tracking-tight font-mono text-emerald-400">{item.q}</h4>
-              <p className="text-gray-400 text-xs font-light leading-relaxed italic">{item.desc}</p>
+            <div key={idx} className="p-6 border border-emerald-500/10 bg-white rounded-xl space-y-2 font-sans shadow-sm">
+              <h4 className="text-base font-bold text-slate-800 uppercase tracking-tight font-mono text-emerald-700">{item.q}</h4>
+              <p className="text-slate-600 text-xs font-light leading-relaxed italic">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* CORE BUSINESS ANALYST TOOLKIT */}
-      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-white/5 relative z-10">
+      <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-black/5 relative z-10">
         <div className="mb-12">
-          <p className="text-emerald-400 font-mono text-[10px] tracking-[0.4em] uppercase">{"// PRAGMATIC_TOOLKIT"}</p>
-          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">Business Analysis Toolkit</h2>
+          <p className="text-emerald-600 font-mono text-[10px] tracking-[0.4em] uppercase">// PRAGMATIC_TOOLKIT</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">Business Analysis Toolkit</h2>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 font-mono text-xs">
           <div>
-            <h3 className="text-emerald-400 font-bold uppercase tracking-widest border-b border-white/5 pb-2 text-[10px]">// Analysis & Elicitation</h3>
-            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-white tracking-tight pt-4">
+            <h3 className="text-emerald-700 font-bold uppercase tracking-widest border-b border-emerald-500/10 pb-2 text-[10px]">// Analysis & Elicitation</h3>
+            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-slate-900 tracking-tight pt-4">
               <span>Requirement Gathering</span>
               <span>Stakeholder Communication</span>
               <span>Process Mapping & BPMN</span>
@@ -427,8 +448,8 @@ Acceptance Criteria (Given-When-Then Framework):
             </div>
           </div>
           <div>
-            <h3 className="text-emerald-400 font-bold uppercase tracking-widest border-b border-white/5 pb-2 text-[10px]">// Documentation Artifacts</h3>
-            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-white tracking-tight pt-4">
+            <h3 className="text-emerald-700 font-bold uppercase tracking-widest border-b border-emerald-500/10 pb-2 text-[10px]">// Documentation Artifacts</h3>
+            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-slate-900 tracking-tight pt-4">
               <span>BRD Composition</span>
               <span>FSD Specifications</span>
               <span>User Stories Management</span>
@@ -437,8 +458,8 @@ Acceptance Criteria (Given-When-Then Framework):
             </div>
           </div>
           <div>
-            <h3 className="text-emerald-400 font-bold uppercase tracking-widest border-b border-white/5 pb-2 text-[10px]">// Project Systems</h3>
-            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-white tracking-tight pt-4">
+            <h3 className="text-emerald-700 font-bold uppercase tracking-widest border-b border-emerald-500/10 pb-2 text-[10px]">// Project Systems</h3>
+            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-slate-900 tracking-tight pt-4">
               <span>Jira Workspaces</span>
               <span>Confluence Hubs</span>
               <span>Figma Prototyping</span>
@@ -449,17 +470,17 @@ Acceptance Criteria (Given-When-Then Framework):
       </section>
 
       {/* 13. LEARNING REFLECTION FOOTER */}
-      <section className="py-28 px-8 md:px-20 border-t border-white/5 bg-neutral-950/20 text-center relative z-10">
+      <section className="py-28 px-8 md:px-20 border-t border-black/5 bg-[#eefdf7]/30 text-center relative z-10">
         <div className="max-w-4xl mx-auto space-y-8">
           <div>
-            <p className="text-emerald-400 font-mono text-[10px] tracking-[0.5em] uppercase mb-4 italic">// WHAT BUSINESS ANALYSIS MEANS TO ME</p>
-            <p className="text-base md:text-lg font-sans font-light italic leading-relaxed text-gray-400 max-w-3xl mx-auto">
+            <p className="text-emerald-600 font-mono text-[10px] tracking-[0.5em] uppercase mb-4 italic">// WHAT BUSINESS ANALYSIS MEANS TO ME</p>
+            <p className="text-base md:text-lg font-sans font-light italic leading-relaxed text-slate-600 max-w-3xl mx-auto">
               During my internship, I realized that Business Analysis is much more than writing documents. It is about understanding how people work, identifying where processes fail, asking the right questions, and helping teams build software that actually solves business problems. That mindset is what I continue to develop in every project.
             </p>
           </div>
           
-          <div className="border-t border-white/5 pt-10 max-w-2xl mx-auto">
-            <h4 className="text-xl md:text-2xl font-sans font-black uppercase text-white tracking-tight italic">
+          <div className="border-t border-slate-200 pt-10 max-w-2xl mx-auto">
+            <h4 className="text-xl md:text-2xl font-sans font-black uppercase text-slate-900 tracking-tight italic">
               Ready to build products that solve business problems.
             </h4>
           </div>
@@ -467,8 +488,8 @@ Acceptance Criteria (Given-When-Then Framework):
       </section>
 
       {/* FOOTER AREA */}
-      <footer className="py-12 bg-[#030303] border-t border-white/5 text-center relative z-10">
-        <div className="flex flex-col md:flex-row justify-center gap-6 opacity-30 font-mono text-[8px] tracking-[0.4em] uppercase text-gray-400">
+      <footer className="py-12 bg-[#fbfaf7] border-t border-black/5 text-center relative z-10">
+        <div className="flex flex-col md:flex-row justify-center gap-6 opacity-60 font-mono text-[8px] tracking-[0.4em] uppercase text-slate-500">
           <span>LOCATION: JAIPUR // INDIA</span>
           <span className="hidden md:block">|</span>
           <span>© 2026 ADITI VERMA // BUSINESS SPECIFICATIONS</span>

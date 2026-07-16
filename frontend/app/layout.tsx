@@ -6,7 +6,7 @@ export const metadata = {
   description: "The Logic of an Engineer. The Soul of a Designer. Portfolio of Aditi Verma.",
   metadataBase: new URL('http://localhost:3000'),
   openGraph: {
-    images: ['/spec_girl_intro.png'], // This makes your Memoji the preview image!
+    images: ['/spec_girl_intro_v2.png'], // This makes your Memoji the preview image!
   },
   
 };

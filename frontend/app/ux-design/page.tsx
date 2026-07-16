@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-export default function UXDesignPage() {
+export default function UXDesignPage({ onBack }: { onBack?: () => void }) {
   const designSkills = ["Figma", "User Research", "Visual Identity", "Typography", "Prototyping", "Wireframing", "Interaction Design"];
 
   const caseStudies = [
@@ -39,12 +39,21 @@ export default function UXDesignPage() {
       
       {/* 1. NAVIGATION */}
       <nav className="fixed top-0 w-full z-[9999] px-8 py-6 flex justify-between items-center pointer-events-auto">
-        <Link 
-          href="/" 
-          className="px-5 py-2 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-2xl relative z-[10001]"
-        >
-          ← Home
-        </Link>
+        {onBack ? (
+          <button 
+            onClick={onBack}
+            className="px-5 py-2 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-2xl relative z-[10001] cursor-pointer"
+          >
+            ← Workspace
+          </button>
+        ) : (
+          <Link 
+            href="/explore" 
+            className="px-5 py-2 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-2xl relative z-[10001]"
+          >
+            ← Workspace
+          </Link>
+        )}
 
         <div className="flex items-center gap-4 relative z-[10001]">
           <a 
@@ -102,10 +111,10 @@ export default function UXDesignPage() {
           drag
           dragConstraints={{ top: -50, left: -50, right: 50, bottom: 50 }}
           whileHover={{ scale: 1.1, rotate: 10 }}
-          className="absolute right-10 bottom-20 w-48 h-48 md:w-80 md:h-80 cursor-grab active:cursor-grabbing z-20"
+          className="absolute right-10 bottom-20 w-40 h-40 md:w-64 md:h-64 cursor-grab active:cursor-grabbing z-20"
         >
           <Image 
-            src="/spec_girl_intro.png" 
+            src="/spec_girl_intro_v2.png" 
             alt="😜" 
             fill 
             priority
