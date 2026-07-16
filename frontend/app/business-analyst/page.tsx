@@ -575,17 +575,14 @@ Acceptance Criteria (Given-When-Then Framework):
           <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">Business Analysis Toolkit</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {skillsCategories.map((category, idx) => (
-            <div key={idx} className="p-6 border border-emerald-500/10 bg-white rounded-2xl shadow-sm space-y-4 hover:border-emerald-500/20 transition-all min-h-[180px] flex flex-col justify-between">
+            <div key={idx} className="p-6 border border-emerald-500/10 bg-white rounded-2xl shadow-sm space-y-4 hover:border-emerald-500/20 transition-all flex flex-col justify-start">
               <div>
                 <div className="flex justify-between items-center border-b border-emerald-500/5 pb-2">
                   <h3 className="text-emerald-800 font-bold uppercase tracking-wider text-[11px] font-mono">
                     // {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}. {category.title}
                   </h3>
-                  {category.rating && (
-                    <span className="text-[10px] text-amber-500 font-mono tracking-tighter">{category.rating}</span>
-                  )}
                 </div>
                 <div className="flex flex-wrap gap-2 pt-4">
                   {category.skills.map((skill, sIdx) => (
