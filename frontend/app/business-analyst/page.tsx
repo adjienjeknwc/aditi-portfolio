@@ -15,6 +15,144 @@ export default function BusinessAnalystPage({ onBack }: { onBack?: () => void })
     { label: "Business Analysis Skills", value: "Requirement Gathering • Process Mapping" }
   ];
 
+  const skillsCategories = [
+    {
+      title: "Requirements & Analysis",
+      rating: null,
+      skills: [
+        "Requirements Gathering", "Requirement Analysis", "Stakeholder Management (Basics)",
+        "Business Process Mapping", "Gap Analysis", "Root Cause Analysis (5 Whys, Fishbone)",
+        "User Stories", "Acceptance Criteria", "Functional Requirements", "Non-Functional Requirements",
+        "BRD", "FRD/FSD", "Process Flow Diagrams", "As-Is vs To-Be Analysis",
+        "Prioritization (MoSCoW)", "Change Request Management", "Traceability Matrix (RTM)"
+      ]
+    },
+    {
+      title: "Documentation Skills",
+      rating: null,
+      skills: [
+        "BRD", "FRD/FSD", "SRS", "Meeting Minutes (MoM)", "User Stories", 
+        "Epics", "Acceptance Criteria", "Use Cases", "Business Rules", 
+        "Requirement Traceability Matrix", "Feature Documentation"
+      ]
+    },
+    {
+      title: "Agile & Scrum",
+      rating: "⭐⭐⭐⭐⭐",
+      skills: [
+        "Agile Methodology", "Scrum Framework", "Sprint Planning", "Daily Stand-up", 
+        "Sprint Review", "Sprint Retrospective", "Product Backlog", "Sprint Backlog", 
+        "Definition of Done", "Story Points"
+      ]
+    },
+    {
+      title: "Business Process Modeling",
+      rating: null,
+      skills: [
+        "BPMN Basics", "Process Mapping", "Swimlane Diagrams", "Workflow Diagrams", 
+        "Flowcharts", "Decision Trees"
+      ]
+    },
+    {
+      title: "SQL",
+      rating: "⭐⭐⭐⭐⭐",
+      skills: [
+        "SELECT", "WHERE", "ORDER BY", "GROUP BY", "HAVING", 
+        "INNER JOIN", "LEFT JOIN", "RIGHT JOIN", "UNION", "Subqueries", "Aggregate Functions"
+      ]
+    },
+    {
+      title: "Excel",
+      rating: null,
+      skills: [
+        "Pivot Tables", "VLOOKUP", "XLOOKUP", "INDEX + MATCH", "IF", 
+        "SUMIFS", "COUNTIFS", "Conditional Formatting", "Charts", "Data Cleaning", "Power Query (basic)"
+      ]
+    },
+    {
+      title: "Data Visualization",
+      rating: "⭐⭐⭐⭐☆",
+      skills: [
+        "Power BI (Recommended)", "Tableau", "Google Looker Studio", 
+        "KPIs", "Dashboards", "Charts", "Filters", "Slicers", "Basic DAX (Power BI)"
+      ]
+    },
+    {
+      title: "Wireframing",
+      rating: null,
+      skills: [
+        "Figma", "Wireframes", "User Flows", "Screen Flows", "Navigation Flows"
+      ]
+    },
+    {
+      title: "Requirement Elicitation",
+      rating: null,
+      skills: [
+        "Interviews", "Workshops", "Brainstorming", "Observation", 
+        "Surveys", "Questionnaires", "Prototyping", "Document Analysis"
+      ]
+    },
+    {
+      title: "Product Thinking",
+      rating: null,
+      skills: [
+        "Problem Statement", "Target Users", "User Personas", "Customer Journey", 
+        "Pain Points", "Success Metrics", "KPIs", "Feature Prioritization"
+      ]
+    },
+    {
+      title: "API Basics",
+      rating: null,
+      skills: [
+        "REST APIs", "GET", "POST", "PUT", "DELETE", "JSON", "Postman"
+      ]
+    },
+    {
+      title: "UML Basics",
+      rating: "⭐⭐⭐⭐☆",
+      skills: [
+        "Use Case Diagram", "Activity Diagram", "Sequence Diagram", "Class Diagram (basic)"
+      ]
+    },
+    {
+      title: "Testing Knowledge",
+      rating: null,
+      skills: [
+        "UAT", "Test Cases", "Test Scenarios"
+      ]
+    },
+    {
+      title: "Domain Knowledge (Insurance)",
+      rating: "⭐⭐⭐⭐☆",
+      skills: [
+        "Life Insurance", "Motor Insurance", "Health Insurance", "Claims Process", 
+        "Underwriting", "Renewals", "Policy Issuance", "Premium Calculation", "Regulatory Basics"
+      ]
+    },
+    {
+      title: "Soft Skills",
+      rating: null,
+      skills: [
+        "Communication", "Active Listening", "Presentation Skills", "Analytical Thinking", 
+        "Problem Solving", "Critical Thinking", "Negotiation", "Stakeholder Communication", 
+        "Time Management", "Attention to Detail"
+      ]
+    }
+  ];
+
+  const baTools = [
+    { tool: "Jira", purpose: "User Stories, Sprint Management" },
+    { tool: "Confluence", purpose: "Documentation" },
+    { tool: "Figma", purpose: "Wireframes & Prototypes" },
+    { tool: "Miro", purpose: "Brainstorming & User Flows" },
+    { tool: "Excel", purpose: "Data Analysis" },
+    { tool: "Power BI", purpose: "Dashboards" },
+    { tool: "SQL", purpose: "Database Queries" },
+    { tool: "Postman", purpose: "API Testing" },
+    { tool: "Visio / Draw.io", purpose: "Process Diagrams" },
+    { tool: "Lucidchart", purpose: "Flowcharts" }
+  ];
+
   const philosophyPoints = [
     { title: "Understand the problem first", text: "I map out the current business situation and gather input from domain experts before trying to outline software features." },
     { title: "Ask questions to remove ambiguity", text: "I clarify edge cases early in the discovery phase so requirements are clear and don't stall design or engineering sprints." },
@@ -437,33 +575,54 @@ Acceptance Criteria (Given-When-Then Framework):
           <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">Business Analysis Toolkit</h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 font-mono text-xs">
-          <div>
-            <h3 className="text-emerald-700 font-bold uppercase tracking-widest border-b border-emerald-500/10 pb-2 text-[10px]">// Analysis & Elicitation</h3>
-            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-slate-900 tracking-tight pt-4">
-              <span>Requirement Gathering</span>
-              <span>Stakeholder Communication</span>
-              <span>Process Mapping & BPMN</span>
-              <span>Wireframes Development</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+          {skillsCategories.map((category, idx) => (
+            <div key={idx} className="p-6 border border-emerald-500/10 bg-white rounded-2xl shadow-sm space-y-4 hover:border-emerald-500/20 transition-all min-h-[180px] flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-center border-b border-emerald-500/5 pb-2">
+                  <h3 className="text-emerald-800 font-bold uppercase tracking-wider text-[11px] font-mono">
+                    // {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}. {category.title}
+                  </h3>
+                  {category.rating && (
+                    <span className="text-[10px] text-amber-500 font-mono tracking-tighter">{category.rating}</span>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2 pt-4">
+                  {category.skills.map((skill, sIdx) => (
+                    <span key={sIdx} className="text-[10px] font-mono border border-emerald-500/10 bg-emerald-500/5 px-2.5 py-0.5 rounded-full text-emerald-800 tracking-wide font-semibold">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-          <div>
-            <h3 className="text-emerald-700 font-bold uppercase tracking-widest border-b border-emerald-500/10 pb-2 text-[10px]">// Documentation Artifacts</h3>
-            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-slate-900 tracking-tight pt-4">
-              <span>BRD Composition</span>
-              <span>FSD Specifications</span>
-              <span>User Stories Management</span>
-              <span>Acceptance Criteria</span>
-              <span>Business Rules Specs</span>
+          ))}
+
+          {/* BA Tools Custom Card */}
+          <div className="p-6 border border-emerald-500/10 bg-white rounded-2xl shadow-sm space-y-4 hover:border-emerald-500/20 transition-all md:col-span-2 lg:col-span-3 mt-4">
+            <div className="flex justify-between items-center border-b border-emerald-500/5 pb-2">
+              <h3 className="text-emerald-800 font-bold uppercase tracking-wider text-[11px] font-mono">
+                // 16. BA Tools & Core Platforms
+              </h3>
             </div>
-          </div>
-          <div>
-            <h3 className="text-emerald-700 font-bold uppercase tracking-widest border-b border-emerald-500/10 pb-2 text-[10px]">// Project Systems</h3>
-            <div className="flex flex-col gap-2 font-sans font-black italic text-base uppercase text-slate-900 tracking-tight pt-4">
-              <span>Jira Workspaces</span>
-              <span>Confluence Hubs</span>
-              <span>Figma Prototyping</span>
-              <span>Miro Boards</span>
+            
+            <div className="overflow-x-auto w-full pt-2">
+              <table className="min-w-full text-left font-sans text-xs">
+                <thead>
+                  <tr className="border-b border-emerald-500/10 text-emerald-700 font-mono uppercase text-[9px] tracking-widest">
+                    <th className="py-2.5 font-bold pr-4">Platform Tool</th>
+                    <th className="py-2.5 font-bold">Purpose / Applied Context</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-emerald-500/5">
+                  {baTools.map((item, idx) => (
+                    <tr key={idx} className="hover:bg-emerald-500/[0.01] transition-colors">
+                      <td className="py-2.5 font-mono font-bold text-emerald-900 pr-4">{item.tool}</td>
+                      <td className="py-2.5 font-light text-slate-600 italic">{item.purpose}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
