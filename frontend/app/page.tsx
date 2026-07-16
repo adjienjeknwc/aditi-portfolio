@@ -56,7 +56,7 @@ export default function Home() {
           >
             <div className="relative group flex items-center justify-center">
               {/* Hardware-accelerated radial glow (Safari-safe) */}
-              <div className="absolute w-[360px] h-[360px] md:w-[440px] md:h-[440px] bg-[radial-gradient(circle,rgba(236,72,153,0.15)_0%,transparent_70%)] animate-pulse pointer-events-none z-0" />
+              <div className="absolute w-[360px] h-[360px] md:w-[440px] md:h-[440px] bg-[radial-gradient(circle,rgba(236,72,153,0.45)_0%,transparent_70%)] animate-pulse pointer-events-none z-0" />
               <motion.div
                 animate={{ y: [0, -12, 0], rotate: [0, 1, -1, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
