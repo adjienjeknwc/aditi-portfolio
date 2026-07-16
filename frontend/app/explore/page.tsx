@@ -92,7 +92,7 @@ function WorkspaceFileCard({
             {filename}
           </span>
         </div>
-        <div className="flex-1 border-b border-slate-200 h-8" />
+        <div className="flex-1 border-b border-white/10 h-8" />
       </div>
 
       {/* File Card Body */}
@@ -128,7 +128,7 @@ function WorkspaceFileCard({
         </div>
 
         {/* Footer Link: Open Identity */}
-        <div className="pt-4 border-t border-black/5 mt-auto">
+        <div className="pt-4 border-t border-white/5 mt-auto">
           <span className={`text-[10px] font-mono font-bold uppercase tracking-widest transition-all flex items-center gap-2 ${theme.footerLink}`}>
             Open Identity <span className="transition-transform duration-300 transform group-hover:translate-x-1">→</span>
           </span>
@@ -178,24 +178,24 @@ export default function ExplorePage() {
   };
 
   const pipeline = [
-    { label: "Business Problem", icon: "🚨", color: "text-slate-400" },
-    { label: "Understand", icon: "🔍", color: "text-emerald-700" },
-    { label: "Design", icon: "🎨", color: "text-purple-700" },
-    { label: "Build", icon: "💻", color: "text-indigo-700" },
-    { label: "Digital Product", icon: "🚀", color: "text-slate-400" }
+    { label: "Business Problem", icon: "🚨", color: "text-white/40" },
+    { label: "Understand", icon: "🔍", color: "text-emerald-400" },
+    { label: "Design", icon: "🎨", color: "text-purple-400" },
+    { label: "Build", icon: "💻", color: "text-indigo-400" },
+    { label: "Digital Product", icon: "🚀", color: "text-white/40" }
   ];
 
   return (
-    <main className="min-h-screen lg:h-screen w-full bg-[#fbfaf7] selection:bg-indigo-500/10 antialiased text-slate-800 font-sans relative overflow-y-auto lg:overflow-hidden">
+    <main className="min-h-screen lg:h-screen w-full bg-[#121214] selection:bg-indigo-500/20 antialiased text-white font-sans relative overflow-y-auto lg:overflow-hidden">
       {/* Background Fine Dotted Grid Layer */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none z-0" 
-           style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+           style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
       {/* Spotlight cursor glow */}
       <div 
         className="pointer-events-none fixed inset-0 z-30 opacity-40"
         style={{
-          background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.04), transparent 85%)`
+          background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.06), transparent 85%)`
         }}
       />
 
@@ -204,16 +204,16 @@ export default function ExplorePage() {
         {/* Navigation Home Indicator */}
         {activeIdentity === null && (
           <div className="mb-4 max-w-6xl mx-auto w-full flex justify-between items-center z-20">
-            <Link href="/" className="px-5 py-2 bg-slate-900 border border-slate-800 text-white rounded-full text-[10px] font-mono font-bold uppercase tracking-widest hover:scale-105 active:scale-95 hover:bg-black transition-all">
+            <Link href="/" className="px-5 py-2 bg-white/5 border border-white/10 text-white rounded-full text-[10px] font-mono font-bold uppercase tracking-widest hover:scale-105 active:scale-95 hover:bg-white hover:text-black transition-all">
               ← Back Home
             </Link>
-            <span className="font-mono text-[9px] text-slate-400 tracking-widest uppercase font-semibold">WORKSPACE ENVIRONMENT</span>
+            <span className="font-mono text-[9px] text-white/40 tracking-widest uppercase font-semibold">WORKSPACE ENVIRONMENT</span>
           </div>
         )}
 
         {/* Narrative Workflow Pipeline */}
         {activeIdentity === null && (
-          <div className="w-full max-w-4xl mx-auto py-3.5 flex items-center justify-between text-[9px] md:text-[10px] font-mono tracking-widest uppercase border-y border-slate-200 mb-6 relative z-10 px-4 md:px-8 select-none bg-slate-100/55 backdrop-blur-md rounded-xl shadow-sm">
+          <div className="w-full max-w-4xl mx-auto py-3.5 flex items-center justify-between text-[9px] md:text-[10px] font-mono tracking-widest uppercase border-y border-white/[0.05] mb-6 relative z-10 px-4 md:px-8 select-none bg-white/[0.02] backdrop-blur-md rounded-xl shadow-inner">
             {pipeline.map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 md:gap-3">
                 <span className={`flex items-center gap-1.5 md:gap-2 ${item.color}`}>
@@ -221,7 +221,7 @@ export default function ExplorePage() {
                   <span className="hidden sm:inline font-bold">{item.label}</span>
                 </span>
                 {idx < pipeline.length - 1 && (
-                  <span className="text-slate-400/90 mx-2 font-bold text-xs select-none">➔</span>
+                  <span className="text-white/20 mx-2 font-bold text-xs select-none">➔</span>
                 )}
               </div>
             ))}
