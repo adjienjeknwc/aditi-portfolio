@@ -54,8 +54,9 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-[1000] bg-[#050505] flex flex-col items-center justify-center"
           >
-            <div className="relative group">
-              <div className="absolute inset-0 bg-pink-500/25 blur-[150px] rounded-full animate-pulse scale-125" />
+            <div className="relative group flex items-center justify-center">
+              {/* Hardware-accelerated radial glow (Safari-safe) */}
+              <div className="absolute w-[360px] h-[360px] md:w-[440px] md:h-[440px] bg-[radial-gradient(circle,rgba(236,72,153,0.15)_0%,transparent_70%)] animate-pulse pointer-events-none z-0" />
               <motion.div
                 animate={{ y: [0, -12, 0], rotate: [0, 1, -1, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -67,7 +68,7 @@ export default function Home() {
                   fill 
                   priority
                   sizes="(max-width: 768px) 100vw, 320px"
-                  className="object-contain drop-shadow-[0_20px_60px_rgba(236,72,153,0.3)]" 
+                  className="object-contain" 
                 />
               </motion.div>
             </div>
