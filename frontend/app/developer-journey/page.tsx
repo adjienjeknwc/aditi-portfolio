@@ -291,7 +291,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
 
       {/* 4. CORE DEPLOYED PROJECTS GRID */}
-      <section className="pt-6 pb-16 md:pt-8 md:pb-20 px-8 md:px-20 max-w-[1600px] mx-auto z-20 relative">
+      <section className="pt-6 pb-6 md:pt-8 md:pb-8 px-8 md:px-20 max-w-[1600px] mx-auto z-20 relative">
         <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-16 underline decoration-slate-200 underline-offset-8">DEPLOYMENT_LOG</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -334,7 +334,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
 
       {/* 5. METRIC PROOFS STACK */}
-      <section className="py-12 border-y border-slate-200/60 bg-white relative z-10 px-8 md:px-20">
+      <section className="py-6 border-y border-slate-200/60 bg-white relative z-10 px-8 md:px-20">
         <div className="max-w-[1600px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-left font-mono">
           <div className="border-l border-cyan-500/30 pl-4">
             <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">UI Architecture</p>
@@ -356,7 +356,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
 
       {/* 6. ENGINEERING CHOICES REASONING */}
-      <section className="py-16 px-8 md:px-20 max-w-[1600px] mx-auto relative z-10">
+      <section className="py-8 px-8 md:px-20 max-w-[1600px] mx-auto relative z-10">
         <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-16">// Engineering Decisions</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans text-sm">
           {frameworkDecisions.map((item, idx) => (
@@ -369,7 +369,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
 
       {/* 7. REFLECTION VAULT (CHALLENGES ENCOUNTERED) */}
-      <section className="py-16 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
+      <section className="py-8 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-sans text-sm">
           <div className="space-y-4">
             <p className="text-cyan-600 font-mono text-[10px] tracking-[0.4em] uppercase">// SYSTEM REFLECTION</p>
@@ -387,7 +387,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
 
       {/* 8. EXPERIMENTAL LEARNING PROJECTS LABS */}
-      <section className="py-16 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
+      <section className="py-8 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
           <div>
             <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-4">// Labs Exploration</h2>
@@ -428,7 +428,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
 
       {/* 9. TECHNICAL TOOLKIT CAPABILITIES STACK */}
-      <section className="py-16 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
+      <section className="py-8 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
         <div className="mb-16">
           <p className="text-cyan-600 font-mono tracking-[0.4em] text-[10px] uppercase">// CAPABILITIES_STACK</p>
           <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">Technical Capabilities</h2>
@@ -464,43 +464,10 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
             </div>
           ))}
         </div>
-
-        {/* Quick-Copy Resume Skills Card */}
-        <div className="mt-16 border border-slate-100 bg-white rounded-[2rem] p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2">
-            <h3 className="text-lg font-black uppercase italic tracking-tight text-slate-900 flex items-center gap-2">
-              <Clipboard className="w-5 h-5 text-cyan-600" />
-              Recruiter Quick-Copy Section
-            </h3>
-            <p className="text-slate-500 text-xs font-sans font-light">
-              Clean, single-line formatted resume skills. Perfect for directly copying and pasting into recruiter forms or resumes.
-            </p>
-          </div>
-          <button
-            onClick={handleCopySkills}
-            className={`px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
-              copied
-                ? 'bg-emerald-600 text-white shadow-md'
-                : 'bg-slate-900 text-white hover:bg-slate-950 hover:scale-105 shadow-sm'
-            }`}
-          >
-            {copied ? (
-              <>
-                <Check className="w-4 h-4" />
-                Copied to Clipboard!
-              </>
-            ) : (
-              <>
-                <Clipboard className="w-4 h-4" />
-                Copy Plain Skills
-              </>
-            )}
-          </button>
-        </div>
       </section>
 
       {/* 10. CURRENT GROWTH PROFILE TARGETS */}
-      <section className="py-12 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
+      <section className="py-6 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
         <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-12">// Currently Learning</h2>
         <div className="flex flex-wrap gap-3 font-mono text-xs text-slate-600">
           {["System Design Basics", "Data Structures & Algorithms (DSA)", "Docker Containerization", "Secure API Rate Limiting", "Test-Driven Development (TDD)", "Continuous Integration Frameworks"].map((item, index) => (
@@ -513,7 +480,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
 
       {/* 11. STRATEGIC ENGINEERING CORE VALUES */}
-      <section className="py-12 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
+      <section className="py-6 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
         <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-16">// Engineering Principles</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-sans text-sm">
           {engineeringPrinciples.map((rule, idx) => (
@@ -526,7 +493,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
       
       {/* 12. CONTINUOUS GROWTH JOURNEY TIMELINE */}
-      <section className="py-16 md:py-20 px-8 md:px-20 max-w-[1600px] mx-auto relative border-t border-slate-200/60">
+      <section className="py-8 md:py-10 px-8 md:px-20 max-w-[1600px] mx-auto relative border-t border-slate-200/60">
         <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-20">// Continuous Growth Journey</h2>
         <div className="space-y-24 relative">
           <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-slate-200" />
