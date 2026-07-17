@@ -486,6 +486,82 @@ Acceptance Criteria (Given-When-Then Framework):
         </div>
       </section>
 
+      {/* 8b. ADDITIONAL PRODUCT CASE STUDIES */}
+      <section className="py-20 px-8 md:px-20 max-w-[1600px] mx-auto z-20 relative border-t border-black/5">
+        <div className="mb-12">
+          <p className="text-emerald-600 font-mono text-[10px] uppercase tracking-[0.4em]">// PRODUCT & GROWTH CASE STUDIES</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">Additional Case Studies</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          
+          {/* Card 1: SmartSpend India */}
+          <div className="group border border-emerald-500/10 p-8 rounded-[2.5rem] bg-white hover:border-emerald-500/30 hover:shadow-md transition-all duration-300 flex flex-col justify-between items-start">
+            <div>
+              <span className="text-[9px] font-mono border border-emerald-500/10 bg-emerald-50/50 px-3 py-1 rounded-full text-emerald-700 tracking-wide uppercase mb-6 inline-block">
+                Data Analytics // Inflation Indexing
+              </span>
+              <h3 className="text-2xl font-black text-slate-900 italic uppercase mb-4 leading-none">SmartSpend India</h3>
+              
+              <div className="space-y-4 text-xs font-sans font-light text-slate-600 leading-relaxed mb-8">
+                <p><strong>The Opportunity:</strong> Shrinkflation and regional pricing variants make real grocery costs difficult for consumers and market analysts to compare accurately in real time.</p>
+                <p><strong>Analysis & Execution:</strong> Designed data models mapping inflation benchmarks across 10 major Indian cities. Normalized weights to extract true unit rates, visualised in clean streamlit grids.</p>
+                <div>
+                  <strong>Key Artifacts Drafted:</strong>
+                  <ul className="list-disc pl-5 mt-1 space-y-1">
+                    <li>Multi-City Data Normalization Matrices</li>
+                    <li>Inflation Indexing Dashboards</li>
+                    <li>Comparative Price-per-Weight Specifications</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <a 
+              href="https://app.notion.com/p/SmartSpend-India-AI-Driven-Grocery-Inflation-Radar-39ebe7f0e9f380bea945edbafe0a9b14?source=copy_link" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-slate-950 hover:scale-105 transition-all mt-auto"
+            >
+              Read Notion Case Study 📖
+            </a>
+          </div>
+
+          {/* Card 2: CogniFlow */}
+          <div className="group border border-emerald-500/10 p-8 rounded-[2.5rem] bg-white hover:border-emerald-500/30 hover:shadow-md transition-all duration-300 flex flex-col justify-between items-start">
+            <div>
+              <span className="text-[9px] font-mono border border-emerald-500/10 bg-emerald-50/50 px-3 py-1 rounded-full text-emerald-700 tracking-wide uppercase mb-6 inline-block">
+                AI Conversion // User Journeys
+              </span>
+              <h3 className="text-2xl font-black text-slate-900 italic uppercase mb-4 leading-none">CogniFlow AI</h3>
+              
+              <div className="space-y-4 text-xs font-sans font-light text-slate-600 leading-relaxed mb-8">
+                <p><strong>The Opportunity:</strong> Product managers discover funnel blockages and conversion drops only after engineering sprints, leading to costly code rework cycles.</p>
+                <p><strong>Analysis & Execution:</strong> Formulated specification plans for an AI-powered visual layout evaluation system. Modeled conversion predictions based on element hierarchy, spacing, and font weight parameters.</p>
+                <div>
+                  <strong>Key Artifacts Drafted:</strong>
+                  <ul className="list-disc pl-5 mt-1 space-y-1">
+                    <li>Conversion-Drop Predictive Model Rules</li>
+                    <li>User Flow Journey Sequence Schemas</li>
+                    <li>A/B Layout Simulation Specs</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <a 
+              href="https://app.notion.com/p/CogniFlow-AI-User-Journey-Conversion-Predictor-39abe7f0e9f38066a853d809007876e9?source=copy_link" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-slate-950 hover:scale-105 transition-all mt-auto"
+            >
+              Read Notion Case Study 📖
+            </a>
+          </div>
+
+        </div>
+      </section>
+
       {/* 2. BUSINESS ANALYSIS DELIVERABLES PREVIEW GRID */}
       <section className="py-20 px-8 md:px-20 max-w-6xl mx-auto border-t border-black/5 relative z-10">
         <div className="mb-4">
