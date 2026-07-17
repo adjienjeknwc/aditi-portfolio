@@ -8,60 +8,77 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
   const [selectedDecision, setSelectedDecision] = useState<string | null>(null);
 
   const coreProjects = [
-
     {
       name: "CogniFlow",
-      link: "https://cogniflow-b40o.onrender.com", // Replace with live link if available
-      problem: "Software teams spend significant time and traffic running live A/B split testing just to fix basic layout mistakes. Misplacing a call-to-action component or creating poor visual balance leads to immediate user drop-offs before any code is ever written.",
-      solution: "Built a predictive full-stack layout evaluator that reviews user interfaces prior to implementation. It features an interactive layout simulation engine that maps fixation sequences, scores overall visual hierarchy, and generates layout structure suggestions.",
-      engineering: "Designed a multi-part form stream using Node.js and Multer to pass image buffers directly to the Gemini API's vision capabilities. Handled layout mapping values to sketch predictive canvas coordinate masks across a responsive React user interface.",
-      learning: "As a BA + UX Researcher, this project taught me how to bridge visual conversion rules with backend APIs, and how to handle streaming binary file payloads securely without overloading server memory.",
-      tech: ["React", "Node.js", "Express", "Gemini API", "HTML5 Canvas", "Multer"]
+      link: "https://cogniflow-b40o.onrender.com",
+      problem: "Design teams often discover UI issues only after development, leading to costly rework.",
+      solution: "Built an AI-powered layout evaluation platform that predicts UI usability issues before development begins.",
+      highlights: [
+        "AI-powered visual hierarchy analysis",
+        "Interactive layout simulation",
+        "Gemini Vision integration"
+      ],
+      tech: ["React", "Node.js", "Express", "Gemini API", "HTML Canvas"]
     },
     { 
       name: "Grid-Lock",
       link: "https://grid-lock-vert.vercel.app/",
-      problem: "Finding a reliable, vacant electric vehicle charging station is unpredictable, and peer-to-peer charger sharing lacks instant updates.",
-      solution: "Built a full-stack peer-to-peer EV charging locator application that enables users to find, block, and list charging ports on a shared map layer.",
-      engineering: "Implemented the MERN stack and integrated Leaflet.js to manage real-time geographic coordinate pin drops and state tracking.",
-      learning: "Taught me how to optimize client-side map rendering and prevent unnecessary React component re-renders when updating large arrays of location parameters.",
-      tech: ["MongoDB", "Express", "React", "Node.js", "Leaflet.js"]
+      problem: "EV drivers struggle to find available charging stations in real time.",
+      solution: "Built a peer-to-peer EV charging platform with live location tracking and charger sharing.",
+      highlights: [
+        "Real-time map updates",
+        "Charger booking & sharing",
+        "Live availability tracking"
+      ],
+      tech: ["React", "MongoDB", "Express", "Leaflet.js", "Socket.io"]
     },
     {
       name: "SmartSpend India",
-      link: "https://smartspend-india-fycu3h9ljwqxmxgn2wunwa.streamlit.app", // Replace with your repository link
-      problem: "Grocery inflation fluctuates rapidly, and retail tactics like shrinkflation (reducing item sizes while keeping prices stable) hide the true cost-per-unit metrics from everyday shoppers.",
-      solution: "Engineered an interactive data product that tracks inflation curves across 10 major Indian metro areas, computes true normalized cost indexes (₹/KG), and handles dynamic simulation fallbacks.",
-      engineering: "Designed a clean, decoupled architecture using NumPy array vectorization for fast indexing calculations and Pandas to process transaction loops. Rendered the UI via Streamlit, plotting metrics with interactive Plotly Express structures over an SQLite3 data layer.",
-      learning: "As a BA + UX Researcher, this project taught me how to take dense metropolitan market matrices and turn them into intuitive, rule-based AI Copilot advisories that reduce layout complexity.",
-      tech: ["Streamlit", "Python", "NumPy", "Pandas", "Plotly Express", "SQLite3"]
+      link: "https://smartspend-india-fycu3h9ljwqxmxgn2wunwa.streamlit.app",
+      problem: "Shrinkflation makes grocery prices difficult to compare across cities.",
+      solution: "Developed an AI-powered grocery analytics platform that calculates real cost per unit across Indian markets.",
+      highlights: [
+        "Inflation tracking across 10 cities",
+        "AI shopping insights",
+        "Interactive dashboards"
+      ],
+      tech: ["Python", "Streamlit", "Pandas", "Plotly"]
     },
     {
       name: "Retail Dashboard",
       link: "https://retail-pulse-eta.vercel.app/",
-      problem: "Small store owners struggle to visualize their shifting inventory levels and daily sales patterns inside a clean, simple workspace.",
-      solution: "Developed an intuitive retail metrics analytics panel that displays transaction curves, inventory status levels, and product distribution records.",
-      engineering: "Utilized Next.js server-side structures alongside Tailwind CSS for fluid responsive grids and Chart.js for data mapping.",
-      learning: "Gave me a deeper understanding of formatting raw database object payloads into structured arrays that chart modules can digest without loading lag.",
-      tech: ["Next.js", "Tailwind CSS", "Chart.js", "JavaScript"]
+      problem: "Small retailers lack clear visibility into inventory and daily sales.",
+      solution: "Designed a real-time analytics dashboard to monitor inventory, sales trends, and product performance.",
+      highlights: [
+        "Interactive KPI dashboard",
+        "Sales analytics",
+        "Inventory monitoring"
+      ],
+      tech: ["Next.js", "Tailwind", "Chart.js"]
     },
     {
       name: "FinCompass",
-      link: "https://fincompass-diwiyajon8dwans9r8hro8.streamlit.app/", // Replace with your repo link
-      problem: "Evaluating systemic banking backlogs, digital fraud trajectories, and regulatory compliance under the RBI Integrated Ombudsman Scheme requires processing heavy unstructured grievance streams without losing statistical integrity.",
-      solution: "Engineered an end-to-end supervisory analytics and data pipeline that ingests, cleanses, and runs statistical predictive analytics over 15,000 synthetic grievance matrices to mimic central bank oversight operations.",
-      engineering: "Built a robust Python ETL pipeline utilizing Z-score validation and SQLAlchemy to map relational entities to an SQLite3 instance. Developed a statistical modeling layer running Welch's t-tests, OLS regression, and SARIMAX time-series forecasting via SciPy and StatsModels. Integrated a scikit-learn NLP text classification channel alongside a LangChain + ChromaDB + Gemini Flash RAG architecture for semantic policy querying, rendering a multi-page interactive Streamlit viewport.",
-      learning: "Designed specifically to meet strict data requirements for regulatory analytics. This project taught me how to translate advanced statistical thresholds (p-values, trend coefficients) into automated, formal policy briefs.",
-      tech: ["Python", "Streamlit", "NumPy & Pandas", "StatsModels", "scikit-learn", "LangChain", "SQLite3"]
+      link: "https://fincompass-diwiyajon8dwans9r8hro8.streamlit.app/",
+      problem: "Financial institutions need better visibility into complaint trends and compliance metrics.",
+      solution: "Built an analytics platform that transforms raw complaint data into actionable insights and reports.",
+      highlights: [
+        "NLP-based complaint classification",
+        "Interactive dashboards",
+        "Regulatory analytics"
+      ],
+      tech: ["Python", "Streamlit", "SQLite", "LangChain", "Gemini"]
     },
     {
       name: "SentinelScale",
-      link: "https://github.com/adjienjeknwc/sentinel-scale.git", // Replace with your repository link
-      problem: "Protecting high-throughput production API endpoints against evolving application-layer exploits and zero-day injection attacks typically introduces significant processing bottlenecks and edge validation overhead.",
-      solution: "Engineered a distributed, high-performance API Gatekeeper and Telemetry Observability Engine combining sub-millisecond Go reverse-proxying, asynchronous Apache Kafka event ingestion, and multi-tier AI anomaly protection.",
-      engineering: "Developed a native Go ingress edge proxy layer utilizing detached execution paths and automated SHA-256 caching routines to maintain a sub-1ms routing signature. Offloaded raw tracking telemetry logs asynchronously via an active Apache Kafka/Redpanda cluster into a Python AI Audit Service running a multi-tier defense architecture: Local Regex (Tier 1), a Transformer model deployed on an onnxruntime inference engine (Tier 2), and a Google GenAI SDK deep LLM scanner (Tier 3). Consolidated data indexing using PostgreSQL 16 with a pgvector HNSW cosine-similarity store, streaming real-time alerts via WebSockets to a Next.js console dashboard equipped with interactive D3.js coordinates.",
-      learning: "Taught me the fundamentals of building low-latency middleware. I learned how to decouple real-time execution pipelines from heavy analytical evaluations using event streams to ensure deep security scans never block user traffic.",
-      tech: ["Go (Golang)", "Apache Kafka", "Python", "PostgreSQL (pgvector)", "Next.js", "ONNX Runtime", "WebSockets"]
+      link: "https://github.com/adjienjeknwc/sentinel-scale.git",
+      problem: "Modern APIs require real-time protection against evolving security threats.",
+      solution: "Built an AI-assisted API monitoring system that detects anomalies and visualizes security events.",
+      highlights: [
+        "Real-time anomaly detection",
+        "Live monitoring dashboard",
+        "AI-powered threat analysis"
+      ],
+      tech: ["Go", "Kafka", "PostgreSQL", "Next.js"]
     }
   ];
 
@@ -200,8 +217,16 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
               <div className="space-y-4 font-sans text-sm text-gray-400 mb-8 font-light leading-relaxed">
                 <p><strong>Problem:</strong> {proj.problem}</p>
                 <p><strong>Solution:</strong> {proj.solution}</p>
-                <p><strong>Engineering:</strong> {proj.engineering}</p>
-                <p className="text-gray-300 italic"><strong>What this taught me:</strong> {proj.learning}</p>
+                {proj.highlights && (
+                  <div>
+                    <strong>Highlights:</strong>
+                    <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-400">
+                      {proj.highlights.map((h, i) => (
+                        <li key={i}>{h}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
               
               <div className="flex flex-wrap gap-2 mb-10">
