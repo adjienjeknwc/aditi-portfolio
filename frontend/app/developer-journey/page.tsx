@@ -229,7 +229,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </nav>
 
       {/* 2. MANIFESTO HERO SECTION */}
-      <section className="pt-36 pb-16 md:pt-40 md:pb-24 px-8 md:px-20 relative overflow-hidden flex items-center w-full">
+      <section className="pt-36 pb-6 md:pt-40 md:pb-8 px-8 md:px-20 relative overflow-hidden flex items-center w-full">
         <div className="absolute inset-0 opacity-10 pointer-events-none z-0" 
              style={{ backgroundImage: 'linear-gradient(#ddd 1px, transparent 1px), linear-gradient(90deg, #ddd 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
         
@@ -268,7 +268,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
 
       {/* 3. APP DELIVERY INFRASTRUCTURE SEGMENT */}
-      <section className="py-12 px-8 md:px-20 max-w-[1600px] mx-auto opacity-80 hover:opacity-100 transition-opacity duration-700">
+      <section className="pt-0 pb-6 px-8 md:px-20 max-w-[1600px] mx-auto opacity-80 hover:opacity-100 transition-opacity duration-700">
         <div className="border border-slate-200/60 rounded-[3rem] p-10 bg-white shadow-sm">
           <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-12 italic">// How I Build Applications</h2>
           <div className="flex flex-col md:flex-row justify-between items-start gap-8">
@@ -291,7 +291,7 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
 
       {/* 4. CORE DEPLOYED PROJECTS GRID */}
-      <section className="py-16 md:py-20 px-8 md:px-20 max-w-[1600px] mx-auto z-20 relative">
+      <section className="pt-6 pb-16 md:pt-8 md:pb-20 px-8 md:px-20 max-w-[1600px] mx-auto z-20 relative">
         <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-16 underline decoration-slate-200 underline-offset-8">DEPLOYMENT_LOG</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
