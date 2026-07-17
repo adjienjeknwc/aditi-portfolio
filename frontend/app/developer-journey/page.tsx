@@ -3,9 +3,23 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Code2, Database, Brain, Layers, Cpu, Workflow, Clipboard, Check } from 'lucide-react';
+
+const IconComponent = ({ name, className }: { name: string; className?: string }) => {
+  switch (name) {
+    case 'Code2': return <Code2 className={className} />;
+    case 'Database': return <Database className={className} />;
+    case 'Brain': return <Brain className={className} />;
+    case 'Layers': return <Layers className={className} />;
+    case 'Cpu': return <Cpu className={className} />;
+    case 'Workflow': return <Workflow className={className} />;
+    default: return <Code2 className={className} />;
+  }
+};
 
 export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
   const [selectedDecision, setSelectedDecision] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
   const coreProjects = [
     {
@@ -91,12 +105,83 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
     { name: "Portfolio Workspace v1", type: "Frontend", detail: "Framer Motion Timeline Interactions" }
   ];
 
-  const technicalToolkit = [
-    { cat: "Frontend", desc: "Building responsive, intuitive user workspaces.", skills: ["React", "Next.js", "JavaScript (ES6+)", "Tailwind CSS", "HTML5 & CSS3"] },
-    { cat: "Backend", desc: "Designing application program interfaces and server logic.", skills: ["Node.js", "Express.js", "RESTful APIs", "JWT Authentication", "Middleware Design"] },
-    { cat: "Databases", desc: "Structuring reliable schemas and query patterns.", skills: ["MongoDB", "Mongoose ORM", "SQL Basics", "Database Modeling"] },
-    { cat: "Tools & Core CS", desc: "Testing, deployment, and fundamental theory.", skills: ["Git & GitHub", "Postman API Testing", "Vercel & Render", "DSA", "DBMS", "Operating Systems", "Computer Networks"] }
+  const capabilitiesCategories = [
+    {
+      cat: "Core Dev Stack",
+      desc: "Languages, frontend interfaces, and server logic architectures.",
+      icon: "Code2",
+      groups: [
+        { name: "Programming Languages", skills: ["JavaScript (ES6+)", "TypeScript", "Python", "Java", "C++ (DSA)", "SQL"] },
+        { name: "Frontend", skills: ["HTML5", "CSS3", "Tailwind CSS", "React.js", "Next.js", "Responsive Design", "REST API Integration"] },
+        { name: "Backend", skills: ["Node.js", "Express.js", "REST APIs", "JWT/OAuth Authentication", "Middleware", "File Uploads", "Error Handling"] }
+      ]
+    },
+    {
+      cat: "Databases & DevOps",
+      desc: "Structured data storage solutions, cloud hosting, and automation loops.",
+      icon: "Database",
+      groups: [
+        { name: "Databases", skills: ["MongoDB", "PostgreSQL", "MySQL", "Prisma ORM"] },
+        { name: "Deployment & Cloud", skills: ["Vercel", "Render", "Railway", "AWS EC2", "AWS S3", "AWS Lambda", "Netlify"] },
+        { name: "DevOps & Control", skills: ["Git", "GitHub", "Docker", "Docker Compose", "CI/CD (GitHub Actions)", "Env Variables"] }
+      ]
+    },
+    {
+      cat: "AI Full Stack",
+      desc: "Advanced cognitive integrations, vector retrieval, and prompt environments.",
+      icon: "Brain",
+      groups: [
+        { name: "AI APIs", skills: ["OpenAI API", "Google Gemini API", "Anthropic Claude API"] },
+        { name: "AI Frameworks", skills: ["LangChain", "LangGraph", "LlamaIndex"] },
+        { name: "Vector Databases", skills: ["Pinecone", "ChromaDB", "FAISS"] },
+        { name: "RAG & Search", skills: ["RAG", "Embeddings", "Semantic Search", "Chunking", "Prompt Engineering"] },
+        { name: "AI Features", skills: ["Chatbots", "Document Q&A", "AI Search", "AI Copilot", "Image Analysis", "OCR Integration"] }
+      ]
+    },
+    {
+      cat: "Software Engineering",
+      desc: "System design patterns, security rules, and testing frameworks.",
+      icon: "Layers",
+      groups: [
+        { name: "Architecture", skills: ["MVC", "Component Architecture", "Clean Code", "SOLID Principles", "Design Patterns"] },
+        { name: "API Development", skills: ["REST APIs", "GraphQL", "Postman", "Swagger/OpenAPI"] },
+        { name: "Auth & Storage", skills: ["JWT / OAuth", "Clerk / NextAuth", "Firebase Auth", "Cloudinary", "Firebase Storage", "AWS S3"] },
+        { name: "Testing", skills: ["Jest", "React Testing Library", "Postman Testing"] }
+      ]
+    },
+    {
+      cat: "AI Agents & CS Theory",
+      desc: "Autonomic system communication protocols and academic computer science logic.",
+      icon: "Cpu",
+      groups: [
+        { name: "AI Extras", skills: ["MCP (Model Context Protocol)", "AI Agents", "Function Calling", "Structured Output", "Tool Calling", "Multi-Agent Systems"] },
+        { name: "Computer Science", skills: ["OOP Basics", "DBMS Keys", "Operating Systems", "Computer Networks", "DSA", "Time Complexity"] }
+      ]
+    },
+    {
+      cat: "Workflow & Target Projects",
+      desc: "Workspace IDE setups, visual design, and target recruiter project archetypes.",
+      icon: "Workflow",
+      groups: [
+        { name: "Projects Recruiters Love", skills: ["Full Stack SaaS", "Authentication Modules", "Dashboard Analytics", "Payments & Stripe", "AI Research Assistant", "Real-Time Chat", "Live Location Maps", "WebSockets Systems"] },
+        { name: "Workspace Tools", skills: ["VS Code", "Cursor", "Claude", "ChatGPT", "Gemini", "Figma", "Postman", "MongoDB Compass", "Docker Desktop"] }
+      ]
+    }
   ];
+
+  const resumePlainSkills = `Programming Languages: JavaScript (ES6+), TypeScript, Python, Java, SQL
+Frontend: React.js, Next.js, HTML5, CSS3, Tailwind CSS
+Backend: Node.js, Express.js, REST APIs, JWT Authentication
+Databases: MongoDB, PostgreSQL, MySQL, Prisma
+AI Stack: OpenAI API, Gemini API, LangChain, RAG, Vector Databases, Prompt Engineering
+Tools & DevOps: Git, GitHub, Postman, Docker, Vercel, Figma
+CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Computer Networks`;
+
+  const handleCopySkills = () => {
+    navigator.clipboard.writeText(resumePlainSkills);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const engineeringPrinciples = [
     { title: "Readable code over clever code", desc: "Code is read far more often than it is written. I structure my applications so that another developer can pick up where I left off without wading through over-complicated scripts." },
@@ -349,18 +434,68 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
           <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">Technical Capabilities</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 font-mono text-xs">
-          {technicalToolkit.map((column, idx) => (
-            <div key={idx} className="space-y-4">
-              <h3 className="text-cyan-600 font-bold uppercase tracking-widest border-b border-slate-100 pb-2 text-[10px]">// {column.cat}</h3>
-              <p className="font-sans font-light italic text-slate-500 text-[12px] pb-2 leading-relaxed">{column.desc}</p>
-              <div className="flex flex-col gap-3 font-sans font-black italic text-xl uppercase text-slate-800 tracking-tight">
-                {column.skills.map((skill, sIdx) => (
-                  <span key={sIdx} className="hover:text-cyan-600 transition-colors cursor-default leading-none">{skill}</span>
-                ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {capabilitiesCategories.map((column, idx) => (
+            <div key={idx} className="p-8 border border-slate-100 bg-white rounded-[2rem] shadow-sm hover:shadow-md hover:border-cyan-500/20 transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 text-slate-900 mb-2">
+                  <div className="p-2.5 bg-cyan-50/50 rounded-xl text-cyan-600">
+                    <IconComponent name={column.icon} className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-lg font-black uppercase italic tracking-tight">{column.cat}</h3>
+                </div>
+                <p className="text-slate-500 text-[11px] font-sans font-light mb-6 italic leading-relaxed">{column.desc}</p>
+                
+                <div className="space-y-6">
+                  {column.groups.map((group, gIdx) => (
+                    <div key={gIdx} className="space-y-2">
+                      <h4 className="text-cyan-600 font-mono text-[9px] uppercase tracking-[0.2em] font-bold border-b border-slate-100/60 pb-1">{group.name}</h4>
+                      <div className="flex flex-wrap gap-1.5 pt-1">
+                        {group.skills.map((skill, sIdx) => (
+                          <span key={sIdx} className="inline-flex items-center px-2.5 py-1 bg-slate-50 text-slate-700 rounded-lg text-[10.5px] font-sans font-medium hover:bg-cyan-50/30 hover:text-cyan-600 transition-colors duration-150 cursor-default">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Quick-Copy Resume Skills Card */}
+        <div className="mt-16 border border-slate-100 bg-white rounded-[2rem] p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2">
+            <h3 className="text-lg font-black uppercase italic tracking-tight text-slate-900 flex items-center gap-2">
+              <Clipboard className="w-5 h-5 text-cyan-600" />
+              Recruiter Quick-Copy Section
+            </h3>
+            <p className="text-slate-500 text-xs font-sans font-light">
+              Clean, single-line formatted resume skills. Perfect for directly copying and pasting into recruiter forms or resumes.
+            </p>
+          </div>
+          <button
+            onClick={handleCopySkills}
+            className={`px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
+              copied
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'bg-slate-900 text-white hover:bg-slate-950 hover:scale-105 shadow-sm'
+            }`}
+          >
+            {copied ? (
+              <>
+                <Check className="w-4 h-4" />
+                Copied to Clipboard!
+              </>
+            ) : (
+              <>
+                <Clipboard className="w-4 h-4" />
+                Copy Plain Skills
+              </>
+            )}
+          </button>
         </div>
       </section>
 
