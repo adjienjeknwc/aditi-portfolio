@@ -120,33 +120,33 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
   ];
 
   return (
-    <main className="min-h-screen bg-[#070a0f] text-white selection:bg-cyan-500/30 overflow-x-hidden font-sans antialiased">
+    <main className="min-h-screen bg-[#fbfaf7] text-slate-800 selection:bg-cyan-500/10 overflow-x-hidden font-sans antialiased">
       
       {/* 1. FIXED NAVIGATION BAR */}
-      <nav className="fixed top-0 w-full z-[100] px-8 py-6 flex justify-between items-center bg-[#070a0f]/80 backdrop-blur-md border-b border-white/5">
+      <nav className="fixed top-0 w-full z-[100] px-8 py-6 flex justify-between items-center bg-[#fbfaf7]/80 backdrop-blur-md border-b border-slate-200/50">
         {onBack ? (
           <button 
             onClick={onBack}
-            className="px-5 py-2 bg-white text-black rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl z-[10001] relative cursor-pointer"
+            className="px-5 py-2 bg-slate-950 text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-md z-[10001] relative cursor-pointer"
           >
             ← BACK TO WORKSPACE
           </button>
         ) : (
-          <Link href="/explore" className="px-5 py-2 bg-white text-black rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl z-[10001] relative">
+          <Link href="/explore" className="px-5 py-2 bg-slate-950 text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-md z-[10001] relative">
             ← BACK TO WORKSPACE
           </Link>
         )}
         
         <div className="flex items-center gap-6 z-[10001] relative">
-          <a href="https://github.com/adjienjeknwc" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-cyan-400 transition-colors">GitHub</a>
+          <a href="https://github.com/adjienjeknwc" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:text-cyan-600 transition-colors">GitHub</a>
           <a href="https://www.linkedin.com/in/aditi-verma-8b8220287" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-cyan-600 text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-cyan-500 transition-all">Connect</a>
         </div>
       </nav>
 
       {/* 2. MANIFESTO HERO SECTION */}
       <section className="min-h-screen flex items-center px-8 md:px-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none z-0" 
-             style={{ backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+        <div className="absolute inset-0 opacity-10 pointer-events-none z-0" 
+             style={{ backgroundImage: 'linear-gradient(#ddd 1px, transparent 1px), linear-gradient(90deg, #ddd 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
         
         <div className="z-10 flex flex-col md:flex-row md:items-center w-full gap-10 md:gap-20">
           <motion.div 
@@ -154,12 +154,12 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
             animate={{ opacity: 1, x: 0 }}
             className="flex-1"
           >
-            <p className="text-cyan-400 font-mono tracking-[0.5em] text-[10px] mb-6 uppercase tracking-widest">// COMPUTER SCIENCE & ENGINEERING STUDENT</p>
-            <h1 className="text-[14vw] md:text-[8vw] font-black leading-[0.85] tracking-tighter uppercase italic mb-8">
+            <p className="text-cyan-600 font-mono tracking-[0.5em] text-[10px] mb-6 uppercase tracking-widest">// COMPUTER SCIENCE & ENGINEERING STUDENT</p>
+            <h1 className="text-[14vw] md:text-[8vw] font-black leading-[0.85] tracking-tighter uppercase italic mb-8 text-slate-900">
               BUILDING APP <br/> 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400">LOGIC.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-teal-500 to-emerald-500">LOGIC.</span>
             </h1>
-            <p className="max-w-2xl text-gray-400 text-lg md:text-xl font-light italic leading-relaxed font-sans">
+            <p className="max-w-2xl text-slate-600 text-lg md:text-xl font-light italic leading-relaxed font-sans">
               I enjoy writing software that bridges user patterns with clean backend logic. As a computer science student at Manipal University Jaipur, I spend my time coding full-stack tools, exploring applied data algorithms, and learning the practical fundamentals of modern system design.
             </p>
           </motion.div>
@@ -176,30 +176,30 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
               fill 
               priority
               sizes="(max-width: 768px) 100vw, 320px"
-              className="object-contain drop-shadow-[0_0_40px_rgba(34,211,238,0.25)]" 
+              className="object-contain drop-shadow-[0_0_40px_rgba(6,182,212,0.12)]" 
             />
           </motion.div>
         </div>
       </section>
 
       {/* 3. APP DELIVERY INFRASTRUCTURE SEGMENT */}
-      <section className="py-20 px-8 md:px-20 max-w-[1600px] mx-auto opacity-40 hover:opacity-100 transition-opacity duration-700">
-        <div className="border border-cyan-500/20 rounded-[3rem] p-10 bg-gradient-to-br from-[#0c1017] to-black">
-          <h2 className="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.5em] mb-12 italic">How_I_Build_Applications</h2>
+      <section className="py-20 px-8 md:px-20 max-w-[1600px] mx-auto opacity-80 hover:opacity-100 transition-opacity duration-700">
+        <div className="border border-slate-200/60 rounded-[3rem] p-10 bg-white shadow-sm">
+          <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-12 italic">// How I Build Applications</h2>
           <div className="flex flex-col md:flex-row justify-between items-start gap-8">
             <div className="space-y-1 max-w-xs">
-              <p className="text-white font-black italic text-xl uppercase">01 // Front View</p>
-              <p className="text-gray-500 font-sans text-xs font-light">React and Next.js platforms using Tailwind CSS utilities to structure responsive layout states.</p>
+              <p className="text-slate-900 font-black italic text-xl uppercase">01 // Front View</p>
+              <p className="text-slate-500 font-sans text-xs font-light">React and Next.js platforms using Tailwind CSS utilities to structure responsive layout states.</p>
             </div>
-            <div className="h-[1px] w-12 bg-cyan-950/40 hidden md:block align-middle mt-4" />
+            <div className="h-[1px] w-12 bg-slate-200 hidden md:block align-middle mt-4" />
             <div className="space-y-1 max-w-xs">
-              <p className="text-white font-black italic text-xl uppercase">02 // Core Logic</p>
-              <p className="text-gray-500 font-sans text-xs font-light">Node.js environments deploying Express endpoints, authenticated via stateless JWT tokens.</p>
+              <p className="text-slate-900 font-black italic text-xl uppercase">02 // Core Logic</p>
+              <p className="text-slate-500 font-sans text-xs font-light">Node.js environments deploying Express endpoints, authenticated via stateless JWT tokens.</p>
             </div>
-            <div className="h-[1px] w-12 bg-cyan-950/40 hidden md:block align-middle mt-4" />
+            <div className="h-[1px] w-12 bg-slate-200 hidden md:block align-middle mt-4" />
             <div className="space-y-1 max-w-xs">
-              <p className="text-white font-black italic text-xl uppercase">03 // Data Storage</p>
-              <p className="text-gray-500 font-sans text-xs font-light">Document modeling inside MongoDB database collections via Mongoose or querying operational SQL records.</p>
+              <p className="text-slate-900 font-black italic text-xl uppercase">03 // Data Storage</p>
+              <p className="text-slate-500 font-sans text-xs font-light">Document modeling inside MongoDB database collections via Mongoose or querying operational SQL records.</p>
             </div>
           </div>
         </div>
@@ -207,20 +207,20 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
 
       {/* 4. CORE DEPLOYED PROJECTS GRID */}
       <section className="py-32 px-8 md:px-20 max-w-[1600px] mx-auto z-20 relative">
-        <h2 className="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.5em] mb-16 underline decoration-white/10 underline-offset-8">DEPLOYMENT_LOG</h2>
+        <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-16 underline decoration-slate-200 underline-offset-8">DEPLOYMENT_LOG</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {coreProjects.map((proj) => (
-            <div key={proj.name} className="group border border-white/10 p-10 rounded-[3rem] bg-[#0c1017] hover:border-cyan-500/50 transition-all duration-500 flex flex-col items-start relative z-30">
-              <h3 className="text-4xl md:text-5xl font-black text-white italic group-hover:text-cyan-400 transition-colors uppercase tracking-tighter mb-6 leading-none">{proj.name}</h3>
+            <div key={proj.name} className="group border border-slate-100 hover:border-cyan-500/30 p-10 rounded-[3rem] bg-white shadow-sm hover:shadow-lg transition-all duration-500 flex flex-col items-start relative z-30">
+              <h3 className="text-4xl md:text-5xl font-black text-slate-900 italic group-hover:text-cyan-600 transition-colors uppercase tracking-tighter mb-6 leading-none">{proj.name}</h3>
               
-              <div className="space-y-4 font-sans text-sm text-gray-400 mb-8 font-light leading-relaxed">
+              <div className="space-y-4 font-sans text-sm text-slate-600 mb-8 font-light leading-relaxed">
                 <p><strong>Problem:</strong> {proj.problem}</p>
                 <p><strong>Solution:</strong> {proj.solution}</p>
                 {proj.highlights && (
                   <div>
                     <strong>Highlights:</strong>
-                    <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-400">
+                    <ul className="list-disc pl-5 mt-2 space-y-1 text-slate-500">
                       {proj.highlights.map((h, i) => (
                         <li key={i}>{h}</li>
                       ))}
@@ -231,7 +231,7 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
               
               <div className="flex flex-wrap gap-2 mb-10">
                 {proj.tech.map(t => (
-                  <span key={t} className="text-[9px] font-mono border border-white/10 px-4 py-1.5 rounded-full text-gray-500 tracking-wide uppercase">{t}</span>
+                  <span key={t} className="text-[9px] font-mono border border-slate-200/60 px-4 py-1.5 rounded-full text-slate-500 tracking-wide uppercase">{t}</span>
                 ))}
               </div>
               
@@ -239,7 +239,7 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
                 href={proj.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-3 bg-white text-black rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform mt-auto"
+                className="inline-flex items-center gap-3 px-8 py-3 bg-slate-900 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-slate-950 hover:scale-105 transition-all mt-auto"
               >
                 Launch Application <span className="text-lg">↗</span>
               </a>
@@ -249,52 +249,52 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
       </section>
 
       {/* 5. METRIC PROOFS STACK */}
-      <section className="py-16 border-t border-b border-white/5 bg-[#090d14]/50 relative z-10 px-8 md:px-20">
+      <section className="py-16 border-y border-slate-200/60 bg-white relative z-10 px-8 md:px-20">
         <div className="max-w-[1600px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-left font-mono">
           <div className="border-l border-cyan-500/30 pl-4">
-            <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">UI Architecture</p>
-            <p className="text-2xl font-black text-white">24+ Components</p>
+            <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">UI Architecture</p>
+            <p className="text-2xl font-black text-slate-800">24+ Components</p>
           </div>
           <div className="border-l border-cyan-500/30 pl-4">
-            <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Backend Connectivity</p>
-            <p className="text-2xl font-black text-white">18+ REST Endpoints</p>
+            <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Backend Connectivity</p>
+            <p className="text-2xl font-black text-slate-800">18+ REST Endpoints</p>
           </div>
           <div className="border-l border-cyan-500/30 pl-4">
-            <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Data Collections</p>
-            <p className="text-2xl font-black text-white">6+ DB Structures</p>
+            <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Data Collections</p>
+            <p className="text-2xl font-black text-slate-800">6+ DB Structures</p>
           </div>
           <div className="border-l border-cyan-500/30 pl-4">
-            <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Access Protocol</p>
-            <p className="text-2xl font-black text-white">100% Stateless JWT</p>
+            <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Access Protocol</p>
+            <p className="text-2xl font-black text-slate-800">100% Stateless JWT</p>
           </div>
         </div>
       </section>
 
       {/* 6. ENGINEERING CHOICES REASONING */}
       <section className="py-24 px-8 md:px-20 max-w-[1600px] mx-auto relative z-10">
-        <h2 className="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.5em] mb-16">Engineering_Decisions</h2>
+        <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-16">// Engineering Decisions</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans text-sm">
           {frameworkDecisions.map((item, idx) => (
-            <div key={idx} className="p-6 border border-white/5 bg-[#0c1017] rounded-2xl space-y-2">
-              <h4 className="text-sm font-mono text-cyan-400 font-bold uppercase tracking-wider">{item.choice}</h4>
-              <p className="text-gray-400 font-light leading-relaxed italic">{item.reason}</p>
+            <div key={idx} className="p-6 border border-slate-100 bg-white rounded-2xl shadow-sm space-y-2">
+              <h4 className="text-sm font-mono text-cyan-600 font-bold uppercase tracking-wider">{item.choice}</h4>
+              <p className="text-slate-600 font-light leading-relaxed italic">{item.reason}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* 7. REFLECTION VAULT (CHALLENGES ENCOUNTERED) */}
-      <section className="py-20 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-white/5 relative z-10">
+      <section className="py-20 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-sans text-sm">
           <div className="space-y-4">
-            <p className="text-cyan-400 font-mono text-[10px] tracking-[0.4em] uppercase">// SYSTEM REFLECTION</p>
-            <h3 className="text-2xl md:text-3xl font-black uppercase text-white italic tracking-tight">Challenges Faced & Fixed</h3>
-            <p className="text-gray-400 font-light leading-relaxed italic">
+            <p className="text-cyan-600 font-mono text-[10px] tracking-[0.4em] uppercase">// SYSTEM REFLECTION</p>
+            <h3 className="text-2xl md:text-3xl font-black uppercase text-slate-900 italic tracking-tight">Challenges Faced & Fixed</h3>
+            <p className="text-slate-600 font-light leading-relaxed italic">
               When I built my early scripts, I over-engineered features and wrote bulky components. If an item broke, tracking down the bug took hours. I fixed this by forcing myself to map out workflows before coding and splitting monolithic tasks into pure, isolated logic functions.
             </p>
           </div>
-          <div className="border border-white/5 bg-neutral-950/40 p-6 rounded-2xl flex flex-col justify-center space-y-2 font-mono text-[11px] text-gray-500">
-            <p className="text-cyan-400 font-bold uppercase tracking-wider">// CODE RESOLUTION TODAY</p>
+          <div className="border border-slate-100 bg-slate-50/50 p-6 rounded-2xl flex flex-col justify-center space-y-2 font-mono text-[11px] text-slate-500">
+            <p className="text-cyan-600 font-bold uppercase tracking-wider">// CODE RESOLUTION TODAY</p>
             <p>&bull; Break complex data matrices down into clear custom sub-components.</p>
             <p>&bull; Use Postman route tracing explicitly before coupling frontend fields to server states.</p>
           </div>
@@ -302,15 +302,15 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
       </section>
 
       {/* 8. EXPERIMENTAL LEARNING PROJECTS LABS */}
-      <section className="py-24 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-white/5 relative z-10">
+      <section className="py-24 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
           <div>
-            <h2 className="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.5em] mb-4">Labs_Exploration</h2>
-            <h3 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter leading-none">
-              Learning <br /> <span className="text-gray-700">Projects.</span>
+            <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-4">// Labs Exploration</h2>
+            <h3 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter leading-none text-slate-900">
+              Learning <br /> <span className="text-slate-400">Projects.</span>
             </h3>
           </div>
-          <p className="text-gray-500 font-mono text-[10px] uppercase tracking-widest max-w-xs text-right italic font-light">
+          <p className="text-slate-500 font-mono text-[10px] uppercase tracking-widest max-w-xs text-right italic font-light">
             // sandbox application builds to study standalone APIs and frameworks
           </p>
         </div>
@@ -320,20 +320,20 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
             <motion.div
               key={mini.name}
               whileHover={{ x: 8 }}
-              className="p-8 border border-white/5 bg-[#090d14] rounded-2xl group hover:bg-white/[0.01] transition-all flex flex-col justify-between h-48 border-l-2 border-l-gray-900 hover:border-l-cyan-400"
+              className="p-8 border border-slate-100 bg-white rounded-2xl group hover:bg-slate-50/40 transition-all flex flex-col justify-between h-48 border-l-2 border-l-slate-200 hover:border-l-cyan-500 shadow-sm"
             >
               <div className="flex justify-between items-start">
-                <span className="text-[10px] font-mono text-gray-600 group-hover:text-cyan-400 transition-colors uppercase tracking-wider">
+                <span className="text-[10px] font-mono text-slate-400 group-hover:text-cyan-600 transition-colors uppercase tracking-wider">
                   [{mini.type}]
                 </span>
-                <span className="text-[9px] font-mono text-gray-700">0{i + 1}</span>
+                <span className="text-[9px] font-mono text-slate-400">0{i + 1}</span>
               </div>
               
               <div>
-                <h4 className="text-xl font-black uppercase italic tracking-tighter text-gray-300 group-hover:text-white transition-colors leading-none">
+                <h4 className="text-xl font-black uppercase italic tracking-tighter text-slate-800 group-hover:text-slate-950 transition-colors leading-none">
                   {mini.name}
                 </h4>
-                <p className="text-gray-500 font-mono text-[10px] mt-2 uppercase tracking-widest">
+                <p className="text-slate-500 font-mono text-[10px] mt-2 uppercase tracking-widest">
                   {mini.detail}
                 </p>
               </div>
@@ -343,20 +343,20 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
       </section>
 
       {/* 9. TECHNICAL TOOLKIT CAPABILITIES STACK */}
-      <section className="py-24 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-white/5 relative z-10">
+      <section className="py-24 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
         <div className="mb-16">
-          <p className="text-cyan-400 font-mono tracking-[0.4em] text-[10px] uppercase">{"// CAPABILITIES_STACK"}</p>
-          <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tighter italic">Technical Capabilities</h2>
+          <p className="text-cyan-600 font-mono tracking-[0.4em] text-[10px] uppercase">// CAPABILITIES_STACK</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase text-slate-950 tracking-tighter italic">Technical Capabilities</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 font-mono text-xs">
           {technicalToolkit.map((column, idx) => (
             <div key={idx} className="space-y-4">
-              <h3 className="text-cyan-400 font-bold uppercase tracking-widest border-b border-white/5 pb-2 text-[10px]">// {column.cat}</h3>
-              <p className="font-sans font-light italic text-gray-500 text-[12px] pb-2 leading-relaxed">{column.desc}</p>
-              <div className="flex flex-col gap-3 font-sans font-black italic text-xl uppercase text-white tracking-tight">
+              <h3 className="text-cyan-600 font-bold uppercase tracking-widest border-b border-slate-100 pb-2 text-[10px]">// {column.cat}</h3>
+              <p className="font-sans font-light italic text-slate-500 text-[12px] pb-2 leading-relaxed">{column.desc}</p>
+              <div className="flex flex-col gap-3 font-sans font-black italic text-xl uppercase text-slate-800 tracking-tight">
                 {column.skills.map((skill, sIdx) => (
-                  <span key={sIdx} className="hover:text-cyan-400 transition-colors cursor-default leading-none">{skill}</span>
+                  <span key={sIdx} className="hover:text-cyan-600 transition-colors cursor-default leading-none">{skill}</span>
                 ))}
               </div>
             </div>
@@ -365,11 +365,11 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
       </section>
 
       {/* 10. CURRENT GROWTH PROFILE TARGETS */}
-      <section className="py-20 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-white/5 relative z-10">
-        <h2 className="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.5em] mb-12">Currently_Learning</h2>
-        <div className="flex flex-wrap gap-3 font-mono text-xs text-gray-400">
+      <section className="py-20 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
+        <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-12">// Currently Learning</h2>
+        <div className="flex flex-wrap gap-3 font-mono text-xs text-slate-600">
           {["System Design Basics", "Data Structures & Algorithms (DSA)", "Docker Containerization", "Secure API Rate Limiting", "Test-Driven Development (TDD)", "Continuous Integration Frameworks"].map((item, index) => (
-            <span key={index} className="px-4 py-2 border border-white/5 bg-neutral-950/60 rounded-lg flex items-center gap-2">
+            <span key={index} className="px-4 py-2 border border-slate-100 bg-white shadow-sm rounded-lg flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
               {item}
             </span>
@@ -378,23 +378,23 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
       </section>
 
       {/* 11. STRATEGIC ENGINEERING CORE VALUES */}
-      <section className="py-20 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-white/5 relative z-10">
-        <h2 className="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.5em] mb-16">Engineering_Principles</h2>
+      <section className="py-20 px-8 md:px-20 max-w-[1600px] mx-auto border-t border-slate-200/60 relative z-10">
+        <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-16">// Engineering Principles</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-sans text-sm">
           {engineeringPrinciples.map((rule, idx) => (
             <div key={idx} className="space-y-1.5">
-              <h4 className="text-white font-bold uppercase tracking-tight text-base italic font-mono text-cyan-400/90">&bull; {rule.title}</h4>
-              <p className="text-gray-400 font-light italic leading-relaxed pl-4">{rule.desc}</p>
+              <h4 className="text-slate-900 font-bold uppercase tracking-tight text-base italic font-mono text-cyan-600/90">&bull; {rule.title}</h4>
+              <p className="text-slate-600 font-light italic leading-relaxed pl-4">{rule.desc}</p>
             </div>
           ))}
         </div>
       </section>
       
       {/* 12. CONTINUOUS GROWTH JOURNEY TIMELINE */}
-      <section className="py-32 px-8 md:px-20 max-w-[1600px] mx-auto relative border-t border-white/5">
-        <h2 className="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.5em] mb-20">Continuous Growth Journey</h2>
+      <section className="py-32 px-8 md:px-20 max-w-[1600px] mx-auto relative border-t border-slate-200/60">
+        <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-20">// Continuous Growth Journey</h2>
         <div className="space-y-24 relative">
-          <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white/5" />
+          <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-slate-200" />
           {[
             { year: "2021", event: "Foundational Code Basics", detail: "Wrote first scripts in HTML, CSS, and basic Java modules during schooling at Summer Valley School in Dehradun." },
             { year: "2023", event: "B.Tech Computer Science Matriculation", detail: "Commenced deep academic engineering targets at Manipal University Jaipur, focusing execution choices around structural parameters." },
@@ -410,23 +410,23 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
               key={i} 
               className="pl-10 relative"
             >
-              <div className="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)]" />
-              <span className="text-cyan-500 font-mono text-sm font-black italic">{item.year}</span>
-              <h4 className="text-white text-3xl font-black uppercase italic tracking-tighter mt-1 leading-none">{item.event}</h4>
-              <p className="text-gray-500 font-sans text-sm font-light max-w-2xl mt-3 leading-relaxed italic">{item.detail}</p>
+              <div className="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]" />
+              <span className="text-cyan-600 font-mono text-sm font-black italic">{item.year}</span>
+              <h4 className="text-slate-900 text-3xl font-black uppercase italic tracking-tighter mt-1 leading-none">{item.event}</h4>
+              <p className="text-slate-500 font-sans text-sm font-light max-w-2xl mt-3 leading-relaxed italic">{item.detail}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* 13. CINEMATIC CLOSING FOOTER BLOCK */}
-      <footer className="py-40 bg-black text-white px-8 text-center border-t border-white/5 relative z-10">
+      <footer className="py-40 bg-slate-50 text-slate-800 px-8 text-center border-t border-slate-200/60 relative z-10">
         <motion.div whileInView={{ opacity: [0, 1], y: [20, 0] }} viewport={{ once: true }}>
-          <p className="text-cyan-400 font-mono text-[10px] tracking-[0.5em] uppercase mb-8 italic">READY FOR DEPLOYMENT</p>
-          <a href="mailto:aditivermauk@gmail.com" className="text-5xl md:text-8xl font-black italic hover:text-cyan-400 transition-all uppercase tracking-tighter leading-none font-sans">
+          <p className="text-cyan-600 font-mono text-[10px] tracking-[0.5em] uppercase mb-8 italic">READY FOR DEPLOYMENT</p>
+          <a href="mailto:aditivermauk@gmail.com" className="text-5xl md:text-8xl font-black italic hover:text-cyan-600 transition-all uppercase tracking-tighter leading-none font-sans text-slate-900">
             Ping the Server.
           </a>
-          <div className="mt-20 flex flex-col md:flex-row justify-center gap-6 opacity-30 font-mono text-[8px] tracking-[0.4em] uppercase">
+          <div className="mt-20 flex flex-col md:flex-row justify-center gap-6 opacity-40 font-mono text-[8px] tracking-[0.4em] uppercase text-slate-500">
              <span>LOCATION: JAIPUR // RAJASTHAN // INDIA</span>
              <span className="hidden md:block">|</span>
              <span>© 2026 ADITI VERMA // ALL SYSTEMS OPERATIONAL</span>
@@ -434,13 +434,13 @@ export default function DeveloperPage({ onBack }: { onBack?: () => void }) {
           <div className="py-20 flex justify-center">
             <a 
               href="mailto:aditivermauk@gmail.com?subject=Technical Collaboration"
-              className="group border border-cyan-500/30 px-10 py-4 rounded-xl bg-[#0c1017] hover:bg-cyan-500/10 transition-all flex items-center gap-4"
+              className="group border border-cyan-500/20 px-10 py-4 rounded-xl bg-white hover:bg-cyan-50/30 shadow-sm transition-all flex items-center gap-4"
             >
               <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-              <span className="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.5em] font-bold">
+              <span className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] font-bold">
                 Establish_Connection
               </span>
-              <span className="text-white font-mono text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
+              <span className="text-slate-500 font-mono text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
                 [email]
               </span>
             </a>
