@@ -359,55 +359,52 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {coreProjects.map((proj) => (
-            <div key={proj.name} className="relative pt-6 group w-full flex flex-col z-30">
+            <div key={proj.name} className="group border border-slate-100 hover:border-blue-500/20 p-10 rounded-[3rem] bg-white shadow-sm hover:shadow-lg transition-all duration-500 flex flex-col items-start relative z-30">
               
-              {/* macOS Folder Tab */}
-              <div className="absolute top-0 left-4 h-6 px-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-t-xl text-[9px] font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5 shadow-sm z-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse" />
-                Folder // {proj.name}
+              {/* macOS Style Window Dot Controls */}
+              <div className="absolute top-6 right-8 flex gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-400/60" />
+                <span className="w-2 h-2 rounded-full bg-yellow-400/60" />
+                <span className="w-2 h-2 rounded-full bg-green-400/60" />
               </div>
 
-              {/* Folder Body Container */}
-              <div className="w-full bg-white border border-slate-100 shadow-sm rounded-b-[2rem] rounded-tr-[2rem] p-10 relative z-10 flex flex-col items-start transition-all duration-300 hover:shadow-md hover:border-blue-500/20 flex-1">
-                {/* macOS Style Window Dot Controls */}
-                <div className="absolute top-4 right-6 flex gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+              <h3 className="text-3xl md:text-4xl font-black text-slate-800 italic group-hover:text-blue-600 transition-colors uppercase tracking-tighter mb-8 leading-none">{proj.name}</h3>
+              
+              <div className="space-y-5 text-slate-600 mb-8 text-sm font-sans font-light leading-relaxed w-full">
+                <div className="flex flex-col gap-1">
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-red-500">// Problem</span>
+                  <p className="text-slate-700 font-light">{proj.problem}</p>
                 </div>
-
-                <h3 className="text-3xl md:text-4xl font-black text-slate-800 italic group-hover:text-blue-600 transition-colors uppercase tracking-tighter mb-6 leading-none mt-2">{proj.name}</h3>
-                
-                <div className="space-y-4 font-sans text-sm text-slate-600 mb-8 font-light leading-relaxed">
-                  <p><strong>Problem:</strong> {proj.problem}</p>
-                  <p><strong>Solution:</strong> {proj.solution}</p>
-                  {proj.highlights && (
-                    <div>
-                      <strong>Highlights:</strong>
-                      <ul className="list-disc pl-5 mt-2 space-y-1 text-slate-500">
-                        {proj.highlights.map((h, i) => (
-                          <li key={i}>{h}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                <div className="flex flex-col gap-1">
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-cyan-600">// Solution</span>
+                  <p className="text-slate-800 font-normal leading-relaxed">{proj.solution}</p>
                 </div>
-                
-                <div className="flex flex-wrap gap-2 mb-10">
-                  {proj.tech.map(t => (
-                    <span key={t} className="text-[9px] font-mono border border-slate-200/60 px-4 py-1.5 rounded-full text-slate-500 tracking-wide uppercase">{t}</span>
-                  ))}
-                </div>
-                
-                <a 
-                  href={proj.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-3 bg-blue-600 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-blue-700 hover:scale-105 transition-all mt-auto"
-                >
-                  Launch Application <span className="text-lg">↗</span>
-                </a>
+                {proj.highlights && (
+                  <div className="flex flex-col gap-1.5">
+                    <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-400">// Highlights</span>
+                    <ul className="list-disc pl-5 space-y-1 text-slate-600 text-xs">
+                      {proj.highlights.map((h, i) => (
+                        <li key={i}>{h}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
+              
+              <div className="flex flex-wrap gap-2 mb-10">
+                {proj.tech.map(t => (
+                  <span key={t} className="text-[9px] font-mono border border-slate-200/60 px-4 py-1.5 rounded-full text-slate-500 tracking-wide uppercase">{t}</span>
+                ))}
+              </div>
+              
+              <a 
+                href={proj.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-3 bg-blue-600 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-blue-700 hover:scale-105 transition-all mt-auto"
+              >
+                Launch Application <span className="text-lg">↗</span>
+              </a>
             </div>
           ))}
         </div>
