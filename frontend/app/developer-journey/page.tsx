@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Database, Brain, Layers, Cpu, Workflow, Clipboard, Check } from 'lucide-react';
+import { Code2, Database, Brain, Layers, Cpu, Workflow, Clipboard, Check, Lightbulb, BookOpen, Users, Briefcase, TrendingUp } from 'lucide-react';
 
 const IconComponent = ({ name, className }: { name: string; className?: string }) => {
   switch (name) {
@@ -202,6 +202,69 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
     { subject: "Object-Oriented Programming (OOP)", detail: "Applying class structures, inheritance, and modular code containment parameters." },
     { subject: "Database Management Systems (DBMS)", detail: "Studying relational transaction guarantees, constraint indexing, and normalization rules." },
     { subject: "Operating Systems & Computer Networks", detail: "Learning process lifecycle management, memory schemas, socket structures, and TCP/IP protocol routing." }
+  ];
+
+  const timelineEvents = [
+    {
+      year: "2021",
+      label: "FIRST MILESTONE",
+      event: "Beginning",
+      detail: "Wrote first scripts in HTML, CSS, and basic Java modules during schooling at Summer Valley School in Dehradun.",
+      icon: Lightbulb,
+      colorClass: "bg-purple-50 text-purple-600 border-purple-100",
+      textClass: "text-purple-600",
+      dotClass: "bg-purple-500"
+    },
+    {
+      year: "2023",
+      label: "SECOND MILESTONE",
+      event: "Investigation",
+      detail: "Commenced deep academic engineering targets at Manipal University Jaipur, focusing execution choices around structural parameters.",
+      icon: BookOpen,
+      colorClass: "bg-cyan-50 text-cyan-600 border-cyan-100",
+      textClass: "text-cyan-600",
+      dotClass: "bg-cyan-500"
+    },
+    {
+      year: "2024",
+      label: "THIRD MILESTONE",
+      event: "Planning",
+      detail: "Coordinated cross-functional asset maps and design-to-development loops as NEXUS Coordinator.",
+      icon: Layers,
+      colorClass: "bg-emerald-50 text-emerald-600 border-emerald-100",
+      textClass: "text-emerald-600",
+      dotClass: "bg-emerald-500"
+    },
+    {
+      year: "2025",
+      label: "FOURTH MILESTONE",
+      event: "Innovation",
+      detail: "Oversaw corporate engineering affairs and directed multi-scale campus workshops as Senior Coordinator at IEEE MUJ.",
+      icon: Users,
+      colorClass: "bg-yellow-50 text-yellow-600 border-yellow-100",
+      textClass: "text-yellow-600",
+      dotClass: "bg-yellow-500"
+    },
+    {
+      year: "2026",
+      label: "FIFTH MILESTONE",
+      event: "Creativity",
+      detail: "Completed a Business Analyst Internship at EY, structuring user story specs and data rules for a Life Insurance Portal.",
+      icon: Briefcase,
+      colorClass: "bg-orange-50 text-orange-600 border-orange-100",
+      textClass: "text-orange-600",
+      dotClass: "bg-orange-500"
+    },
+    {
+      year: "Present",
+      label: "SIXTH MILESTONE",
+      event: "Growth",
+      detail: "Polishing algorithmic logic efficiency and constructing modular MERN tools to prepare for SDE internship profiles.",
+      icon: TrendingUp,
+      colorClass: "bg-pink-50 text-pink-600 border-pink-100",
+      textClass: "text-pink-600",
+      dotClass: "bg-pink-500"
+    }
   ];
 
   return (
@@ -493,31 +556,68 @@ CS Fundamentals: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Com
       </section>
       
       {/* 12. CONTINUOUS GROWTH JOURNEY TIMELINE */}
-      <section className="py-8 md:py-10 px-8 md:px-20 max-w-[1600px] mx-auto relative border-t border-slate-200/60">
-        <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-20">// Continuous Growth Journey</h2>
-        <div className="space-y-24 relative">
-          <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-slate-200" />
-          {[
-            { year: "2021", event: "Foundational Code Basics", detail: "Wrote first scripts in HTML, CSS, and basic Java modules during schooling at Summer Valley School in Dehradun." },
-            { year: "2023", event: "B.Tech Computer Science Matriculation", detail: "Commenced deep academic engineering targets at Manipal University Jaipur, focusing execution choices around structural parameters." },
-            { year: "2024", event: "Pipeline Workflow Management", detail: "Coordinated cross-functional asset maps and design-to-development loops as NEXUS Coordinator." },
-            { year: "2025", event: "Student Community Technical Direction", detail: "Oversaw corporate engineering affairs and directed multi-scale campus workshops as Senior Coordinator at IEEE MUJ." },
-            { year: "2026", event: "Enterprise Consulting Execution", detail: "Completed a Business Analyst Internship at EY, structuring user story specs and data rules for a Life Insurance Portal." },
-            { year: "Present", event: "Full Stack Implementation Sprints", detail: "Polishing algorithmic logic efficiency and constructing modular MERN tools to prepare for SDE internship profiles." }
-          ].map((item, i) => (
-            <motion.div 
-              initial={{ opacity: 0, x: -10 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }}
-              key={i} 
-              className="pl-10 relative"
-            >
-              <div className="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]" />
-              <span className="text-cyan-600 font-mono text-sm font-black italic">{item.year}</span>
-              <h4 className="text-slate-900 text-3xl font-black uppercase italic tracking-tighter mt-1 leading-none">{item.event}</h4>
-              <p className="text-slate-500 font-sans text-sm font-light max-w-2xl mt-3 leading-relaxed italic">{item.detail}</p>
-            </motion.div>
-          ))}
+      <section className="py-8 md:py-10 px-8 md:px-20 max-w-[1600px] mx-auto relative border-t border-slate-200/60 overflow-hidden">
+        <h2 className="text-cyan-600 font-mono text-[10px] uppercase tracking-[0.5em] mb-16">// Continuous Growth Journey</h2>
+        
+        <div className="overflow-x-auto w-full pb-8 pt-4 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent">
+          <div className="min-w-[1100px] lg:min-w-0 w-full relative px-2">
+            
+            {/* Horizontal Timeline Cards Row */}
+            <div className="grid grid-cols-6 gap-6 relative z-10 mb-12">
+              {timelineEvents.map((item, i) => (
+                <div key={i} className="flex flex-col items-center">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className="bg-white border border-slate-100 rounded-3xl p-5 text-center flex flex-col items-center relative shadow-sm hover:shadow-md transition-all duration-300 w-full min-h-[220px] justify-start"
+                  >
+                    
+                    {/* Circle Icon Badge */}
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${item.colorClass} border`}>
+                      <item.icon className="w-5 h-5" />
+                    </div>
+                    
+                    <span className={`text-[8px] font-mono font-black uppercase tracking-wider mb-1 ${item.textClass}`}>
+                      {item.label}
+                    </span>
+                    <h4 className="text-sm font-black uppercase italic tracking-tight text-slate-800 leading-tight mb-2">
+                      {item.event}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 font-sans font-light leading-relaxed">
+                      {item.detail}
+                    </p>
+                    
+                    {/* Pointed arrow decoration pointing to the timeline dot */}
+                    <div className="absolute bottom-[-6px] left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white border-r border-b border-slate-100 rotate-45 z-0" />
+                  </motion.div>
+                </div>
+              ))}
+            </div>
+
+            {/* Horizontal Line & Dots Container */}
+            <div className="relative w-full py-4 flex items-center">
+              {/* Gradient horizontal line */}
+              <div className="absolute left-0 right-0 h-[3px] bg-gradient-to-r from-purple-400 via-cyan-400 via-emerald-400 via-yellow-400 via-orange-400 to-pink-500 rounded-full" />
+              
+              {/* Dots & Years */}
+              <div className="w-full grid grid-cols-6 relative z-20">
+                {timelineEvents.map((item, i) => (
+                  <div key={i} className="flex flex-col items-center justify-center">
+                    {/* Timeline dot */}
+                    <div className={`w-4.5 h-4.5 rounded-full border-2 border-white shadow-sm transition-transform duration-300 hover:scale-125 cursor-pointer ${item.dotClass}`} />
+                    
+                    {/* Year below dot */}
+                    <span className={`font-mono text-xs font-black italic mt-3 ${item.textClass}`}>
+                      {item.year}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
